@@ -49,7 +49,7 @@ const generalRequirements: AccordionItemConfig[] = [
         <ul>
           <li>
             <a
-              href="http://www.comlaw.gov.au/Series/F2015L00383"
+              href="https://www.legislation.gov.au/F2015L00383/latest/text"
               target="_blank"
               rel="noopener"
             >
