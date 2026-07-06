@@ -70,13 +70,22 @@ const generalRequirements: AccordionItemConfig[] = [
           <ul>
             <li>
               <a
-                href="https://www.legislation.gov.au/Series/F2015L00401"
+                href="https://www.legislation.gov.au/F2015L00401/latest/text"
                 target="_blank"
                 rel="noopener"
               >
                 Standard 1.2.5
               </a>{" "}
               Information requirements – date marking of food for sale
+            </li>
+            <li>
+              <a
+                href="https://www.foodstandards.gov.au/consumer/labelling/dates"
+                target="_blank"
+                rel="noopener"
+              >
+                Use-by and best-before dates
+              </a>{" "}
             </li>
           </ul>
         </section>
@@ -122,7 +131,7 @@ const generalRequirements: AccordionItemConfig[] = [
           <ul>
             <li>
               <a
-                href="https://www.publications.qld.gov.au/dataset/food-labelling/resource/50bf4dcb-48fe-4321-8866-dfbb36a56259"
+                href="https://www.qld.gov.au/health/staying-healthy/food-pantry/food-labelling/food-product-guides/bread-and-bakery-products"
                 target="_blank"
                 rel="noopener"
               >
@@ -136,7 +145,7 @@ const generalRequirements: AccordionItemConfig[] = [
           <ul>
             <li>
               <a
-                href="https://www.legislation.gov.au/Series/F2015L00401"
+                href="https://www.legislation.gov.au/F2015L00401/latest/text"
                 target="_blank"
                 rel="noopener"
               >
@@ -185,7 +194,7 @@ const generalRequirements: AccordionItemConfig[] = [
           <ul>
             <li>
               <a
-                href="https://www.legislation.gov.au/Series/F2015L00401"
+                href="https://www.legislation.gov.au/F2015L00401/latest/text"
                 target="_blank"
                 rel="noopener"
               >
@@ -234,7 +243,7 @@ const generalRequirements: AccordionItemConfig[] = [
           <ul>
             <li>
               <a
-                href="https://www.legislation.gov.au/Series/F2015L00401"
+                href="https://www.legislation.gov.au/F2015L00401/latest/text"
                 target="_blank"
                 rel="noopener"
               >
@@ -273,7 +282,7 @@ const generalRequirements: AccordionItemConfig[] = [
           <ul>
             <li>
               <a
-                href="https://www.legislation.gov.au/Series/F2015L00389"
+                href="https://www.legislation.gov.au/F2015L00389/latest/text"
                 target="_blank"
                 rel="noopener"
               >
@@ -321,7 +330,7 @@ const generalRequirements: AccordionItemConfig[] = [
           <ul>
             <li>
               <a
-                href="https://www.legislation.gov.au/Series/F2015L00401"
+                href="https://www.legislation.gov.au/F2015L00401/latest/text"
                 target="_blank"
                 rel="noopener"
               >
@@ -356,7 +365,7 @@ const extraRequirements: AccordionItemConfig[] = [
           <ul>
             <li>
               <a
-                href="https://www.legislation.gov.au/Series/F2015L00401"
+                href="https://www.legislation.gov.au/F2015L00401/latest/text"
                 target="_blank"
                 rel="noopener"
               >
@@ -386,7 +395,7 @@ const extraRequirements: AccordionItemConfig[] = [
           <ul>
             <li>
               <a
-                href="https://www.legislation.gov.au/Series/F2015L00401"
+                href="https://www.legislation.gov.au/F2015L00401/latest/text"
                 target="_blank"
                 rel="noopener"
               >
