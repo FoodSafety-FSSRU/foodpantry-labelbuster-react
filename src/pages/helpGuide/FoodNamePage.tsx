@@ -63,6 +63,16 @@ const generalRequirements: AccordionItemConfig[] = [
               </li>
             </ul>
           </li>
+          <li>
+            <a
+              href="https://www.legislation.gov.au/F2015L00383/latest/text"
+              target="_blank"
+              rel="noopener"
+            >
+              Schedule 10
+            </a>{" "}
+             - Generic names of ingredients and conditions for their use
+          </li>
         </ul>
       </>
     ),
@@ -106,7 +116,7 @@ const generalRequirements: AccordionItemConfig[] = [
           <ul>
             <li>
               <a
-                href="http://www.comlaw.gov.au/Series/F2015L00398"
+                href="https://www.legislation.gov.au/F2015L00398/latest/text"
                 target="_blank"
                 rel="noopener"
               >
@@ -114,6 +124,15 @@ const generalRequirements: AccordionItemConfig[] = [
               </a>
               Information requirements - characterising ingredients and
               components of food.
+            </li>
+            <li>
+              <a
+                href="https://www.foodstandards.gov.au/consumer/labelling/ingredients"
+                target="_blank"
+                rel="noopener"
+              >
+                Ingredient lists and percentage labelling
+              </a>
             </li>
           </ul>
           <p>Food Standards Australia New Zealand</p>
@@ -157,7 +176,7 @@ const generalRequirements: AccordionItemConfig[] = [
           <ul>
             <li>
               <a
-                href="http://www.comlaw.gov.au/Series/F2015L00427"
+                href="https://www.legislation.gov.au/F2015L00427/latest/text"
                 target="_blank"
                 rel="noopener"
               >
@@ -167,7 +186,7 @@ const generalRequirements: AccordionItemConfig[] = [
             </li>
             <li>
               <a
-                href="http://www.comlaw.gov.au/Series/F2015L00407"
+                href="https://www.legislation.gov.au/F2015L00407/latest/text"
                 target="_blank"
                 rel="noopener"
               >
