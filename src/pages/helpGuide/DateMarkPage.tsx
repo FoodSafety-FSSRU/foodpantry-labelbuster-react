@@ -67,6 +67,7 @@ const generalRequirements: AccordionItemConfig[] = [
               >
                 Use-by and best-before dates
               </a>{" "}
+              
             </li>
           </ul>
         </section>
@@ -82,8 +83,17 @@ const generalRequirements: AccordionItemConfig[] = [
           The label on a package of bread with a shelf life of less than 7 days
           may be date marked with a baked-on date or a baked-for date instead of
           a{" "}
-          <a data-accordion-item="best-before-date" className="accordion-btn">
-            best-before date
+          <a
+            href="#best-before-date"
+            onClick={(e) => {
+              e.preventDefault();
+              const item = document.getElementById("accordion-item-best-before-date");
+              const btn = item?.querySelector<HTMLButtonElement>(".accordion-button");
+              if (btn && btn.getAttribute("aria-expanded") === "false") btn.click();
+              item?.scrollIntoView({ behavior: "smooth", block: "center" });
+            }}
+          >
+            Use-by and best-before dates
           </a>
           .
         </p>

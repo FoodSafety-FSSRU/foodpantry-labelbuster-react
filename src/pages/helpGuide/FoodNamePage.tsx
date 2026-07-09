@@ -27,7 +27,17 @@ const generalRequirements: AccordionItemConfig[] = [
         </p>
         <p>
           Some food have names that must be used (
-          <a data-accordion-item="prescribed-names" className="accordion-btn">
+          
+          <a
+            href="#prescribed-names"
+            onClick={(e) => {
+              e.preventDefault();
+              const item = document.getElementById("accordion-item-prescribed-names");
+              const btn = item?.querySelector<HTMLButtonElement>(".accordion-button");
+              if (btn && btn.getAttribute("aria-expanded") === "false") btn.click();
+              item?.scrollIntoView({ behavior: "smooth", block: "center" });
+            }}
+          >
             prescribed names
           </a>
           ). For example, 'fermented processed meat - cooked' or 'infant
