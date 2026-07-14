@@ -26,7 +26,7 @@ const sections: AccordionItemConfig[] = [
         <ul>
           <li>
             <a
-              href="https://www.legislation.gov.au/Series/F2015L00469"
+              href="https://www.legislation.gov.au/F2015L00469/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -36,7 +36,7 @@ const sections: AccordionItemConfig[] = [
           </li>
           <li>
             <a
-              href="https://www.legislation.gov.au/Series/F2015L00384"
+              href="https://www.legislation.gov.au/F2015L00384/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -46,7 +46,7 @@ const sections: AccordionItemConfig[] = [
           </li>
           <li>
             <a
-              href="https://www.legislation.gov.au/Series/F2015L00388"
+              href="https://www.legislation.gov.au/F2015L00388/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -56,7 +56,7 @@ const sections: AccordionItemConfig[] = [
           </li>
           <li>
             <a
-              href="https://www.legislation.gov.au/Series/F2015L00391"
+              href="https://www.legislation.gov.au/F2015L00391/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -66,7 +66,7 @@ const sections: AccordionItemConfig[] = [
           </li>
           <li>
             <a
-              href="https://www.legislation.gov.au/Series/F2015L00399"
+              href="https://www.legislation.gov.au/F2015L00399/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -76,7 +76,7 @@ const sections: AccordionItemConfig[] = [
           </li>
           <li>
             <a
-              href="https://www.foodstandards.gov.au/consumer/labelling/Pages/Labelling-of-alcoholic-beverages.aspx"
+              href="https://www.foodstandards.gov.au/consumer/labelling/Labelling-of-alcoholic-beverages"
               target="_blank"
               rel="noopener"
             >
@@ -129,7 +129,7 @@ const sections: AccordionItemConfig[] = [
           There are lists of pre-approved food-health relationships that
           businesses can base their claims on. These are listed in{" "}
           <a
-            href="https://www.legislation.gov.au/Series/F2015L00474"
+            href="https://www.legislation.gov.au/F2015L00474/latest/text"
             target="_blank"
             rel="noopener"
           >
@@ -168,7 +168,7 @@ const sections: AccordionItemConfig[] = [
         <ul>
           <li>
             <a
-              href="https://www.legislation.gov.au/Details/F2018C00942"
+              href="https://www.legislation.gov.au/F2015L00394/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -182,7 +182,7 @@ const sections: AccordionItemConfig[] = [
           </li>
           <li>
             <a
-              href="https://www.legislation.gov.au/Series/F2015L00474"
+              href="https://www.legislation.gov.au/F2015L00474/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -191,19 +191,14 @@ const sections: AccordionItemConfig[] = [
             Nutrition, health and related claims
           </li>
           <li>
-            Australian Government Department of Health
-            <ul>
-              <li>
-                Getting Your Claims Right 7. Endorsing bodies and endorsements{" "}
-                <a
-                  href="https://www1.health.gov.au/internet/publications/publishing.nsf/Content/frs-getting-your-claims-right-toc~7-endorsing"
-                  target="_blank"
-                  rel="noopener"
-                >
-                  https://www1.health.gov.au/internet/publications/publishing.nsf/Content/frs-getting-your-claims-right-toc~7-endorsing
-                </a>
-              </li>
-            </ul>
+            <a
+              href="https://www.foodregulation.gov.au/sites/default/files/2023-09/getting-your-claims-right.pdf"
+              target="_blank"
+              rel="noopener"
+            >
+              Getting Your Claims Right - 7. Endorsing bodies and endorsements
+            </a>{" "}
+            
           </li>
           <li>
             <a
@@ -212,14 +207,16 @@ const sections: AccordionItemConfig[] = [
               rel="noopener"
             >
               Australian Competition and Consumer Commission
-            </a>
-            <ul>
-              <li>website https://www.accc.gov.au/business</li>
-              <li>
-                Food and beverage industry - Food descriptors guideline to the
-                Trade Practices Act
-              </li>
-            </ul>
+            </a>{" "}
+          </li>
+          <li>
+            <a
+              href="https://catalogue.nla.gov.au/catalog/3889020"
+              target="_blank"
+              rel="noopener"
+            >
+              Food and beverage industry: food descriptors guideline to the Trade Practices Act/ Australian Competition & Consumer Commission
+            </a>{" "}
           </li>
         </ul>
       </>
