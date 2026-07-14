@@ -240,7 +240,7 @@ const sections: AccordionItemConfig[] = [
         <ul>
           <li>
             <a
-              href="https://www.legislation.gov.au/Details/F2017C00418"
+              href="https://www.legislation.gov.au/F2015L00397/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -251,7 +251,7 @@ const sections: AccordionItemConfig[] = [
           </li>
           <li>
             <a
-              href="https://www.legislation.gov.au/Details/F2016C00827"
+              href="https://www.legislation.gov.au/F2015L00479/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -281,7 +281,7 @@ const sections: AccordionItemConfig[] = [
         <ul>
           <li>
             <a
-              href="https://www.legislation.gov.au/Details/F2017C00721"
+              href="https://www.legislation.gov.au/F2015L00465/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -309,7 +309,7 @@ const sections: AccordionItemConfig[] = [
         <ul>
           <li>
             <a
-              href="https://www.legislation.gov.au/Details/F2015L00467"
+              href="https://www.legislation.gov.au/F2015L00467/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -332,7 +332,7 @@ const sections: AccordionItemConfig[] = [
           Genetically modified food means a food produced using gene technology
           that contains novel DNA, novel protein or is listed in{" "}
           <a
-            href="https://www.legislation.gov.au/Series/F2015L00450"
+            href="https://www.legislation.gov.au/F2015L00450/latest/text"
             target="_blank"
             rel="noopener"
           >
@@ -348,7 +348,7 @@ const sections: AccordionItemConfig[] = [
         <ul>
           <li>
             <a
-              href="https://www.legislation.gov.au/Series/F2015L00404"
+              href="https://www.legislation.gov.au/F2015L00404/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -358,7 +358,7 @@ const sections: AccordionItemConfig[] = [
           </li>
           <li>
             <a
-              href="https://www.legislation.gov.au/Series/F2015L00450"
+              href="https://www.legislation.gov.au/F2015L00450/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -388,13 +388,22 @@ const sections: AccordionItemConfig[] = [
         <ul>
           <li>
             <a
-              href="https://www.legislation.gov.au/Series/F2015L00406"
+              href="https://www.legislation.gov.au/F2015L00406/latest/text"
               target="_blank"
               rel="noopener"
             >
               Standard 1.5.3
             </a>{" "}
             Irradiation of food
+          </li>
+          <li>
+            <a
+              href="https://www.qld.gov.au/health/staying-healthy/food-pantry/food-safety-for-consumers/food-warnings-and-advice/food-irradiation"
+              target="_blank"
+              rel="noopener"
+            >
+              Food irradiation
+            </a>{" "}
           </li>
         </ul>
       </>
@@ -420,11 +429,11 @@ const sections: AccordionItemConfig[] = [
         <p>
           The{" "}
           <a
-            href="https://www.foodstandards.gov.au/industry/novel/Pages/default.aspx"
+            href="https://www.foodstandards.gov.au/business/novel/novelcommittee"
             target="_blank"
             rel="noopener"
           >
-            Australian Novel Food Committee
+            Advisory Committee on Novel Foods
           </a>{" "}
           has developed resources to help determine if a food is a novel food
           that needs assessment.
@@ -436,7 +445,7 @@ const sections: AccordionItemConfig[] = [
         <ul>
           <li>
             <a
-              href="https://www.legislation.gov.au/Series/F2015L00403"
+              href="https://www.legislation.gov.au/F2015L00403/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -446,13 +455,23 @@ const sections: AccordionItemConfig[] = [
           </li>
           <li>
             <a
-              href="https://www.legislation.gov.au/Series/F2015L00440"
+              href="https://www.legislation.gov.au/F2015L00440/latest/text"
               target="_blank"
               rel="noopener"
             >
               Schedule 25
             </a>{" "}
             Permitted Novel foods
+          </li>
+          <li>
+            <a
+              href="https://www.foodstandards.gov.au/business/novel"
+              target="_blank"
+              rel="noopener"
+            >
+              Novel foods
+            </a>{" "}
+            (Food Standards Australia New Zealand)
           </li>
         </ul>
       </>
@@ -485,7 +504,7 @@ const sections: AccordionItemConfig[] = [
         <ul>
           <li>
             <a
-              href="https://www.legislation.gov.au/Series/F2015L00409"
+              href="https://www.legislation.gov.au/F2015L00409/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -495,7 +514,7 @@ const sections: AccordionItemConfig[] = [
           </li>
           <li>
             <a
-              href="https://www.legislation.gov.au/Series/F2015L00417"
+              href="https://www.legislation.gov.au/F2015L00417/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -505,7 +524,7 @@ const sections: AccordionItemConfig[] = [
           </li>
           <li>
             <a
-              href="https://www.legislation.gov.au/Series/F2015L00419"
+              href="https://www.legislation.gov.au/F2015L00419/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -515,7 +534,7 @@ const sections: AccordionItemConfig[] = [
           </li>
           <li>
             <a
-              href="https://www.legislation.gov.au/Series/F2015L00421"
+              href="https://www.legislation.gov.au/F2015L00421/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -525,7 +544,7 @@ const sections: AccordionItemConfig[] = [
           </li>
           <li>
             <a
-              href="https://www.legislation.gov.au/Series/F2015L00472"
+              href="https://www.legislation.gov.au/F2015L00472/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -543,9 +562,19 @@ const sections: AccordionItemConfig[] = [
     content: (
       <>
         <p>
-          Some special purpose foods have mandated naming requirements and
-          additional advisory statements that must appear on pack.
+          Special purpose foods have complex labelling requirements, such as 
+          an expanded nutrition information panel, compositional requirements 
+          and advisory statements. Special purpose foods include:
         </p>
+        <ul>
+          <li>Infant formula products</li>
+          <li>Foods for infants</li>
+          <li>
+            Formulated meal replacements and formulated supplementary foods
+          </li>
+          <li>Formulated supplementary sports foods</li>
+          <li>Food for special medical purposes</li>
+        </ul>
         <h4>Further reading</h4>
         <p>
           <i>Australia New Zealand Food Standards Code</i>
@@ -553,23 +582,53 @@ const sections: AccordionItemConfig[] = [
         <ul>
           <li>
             <a
-              href="https://www.legislation.gov.au/Series/F2015L00403"
+              href="https://www.legislation.gov.au/F2015L00409/latest/text"
               target="_blank"
               rel="noopener"
             >
-              Standard 1.5.1
+              Standard 2.9.1
             </a>{" "}
-            Novel foods
+            Infant formula products
           </li>
           <li>
             <a
-              href="https://www.legislation.gov.au/Series/F2015L00440"
+              href="https://www.legislation.gov.au/F2015L00417/latest/text"
               target="_blank"
               rel="noopener"
             >
-              Schedule 25
+              Standard 2.9.2
             </a>{" "}
-            Permitted Novel foods
+            Food for infants
+          </li>
+          <li>
+            <a
+              href="https://www.legislation.gov.au/F2015L00419/latest/text"
+              target="_blank"
+              rel="noopener"
+            >
+              Standard 2.9.3
+            </a>{" "}
+            Formulated meal replacements and formulated supplementary foods
+          </li>
+          <li>
+            <a
+              href="https://www.legislation.gov.au/F2015L00421/latest/text"
+              target="_blank"
+              rel="noopener"
+            >
+              Standard 2.9.4
+            </a>{" "}
+            Formulated supplementary sports foods
+          </li>
+          <li>
+            <a
+              href="https://www.legislation.gov.au/F2015L00472/latest/text"
+              target="_blank"
+              rel="noopener"
+            >
+              Standard 2.9.5
+            </a>{" "}
+            Food for special medical purposes
           </li>
         </ul>
       </>
