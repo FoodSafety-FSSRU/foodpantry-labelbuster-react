@@ -72,7 +72,7 @@ const extraRequirements: AccordionItemConfig[] = [
         <ul>
           <li>
             <a
-              href="https://www.legislation.gov.au/Series/F2015L00386"
+              href="https://www.legislation.gov.au/F2015L00386/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -106,7 +106,7 @@ const extraRequirements: AccordionItemConfig[] = [
         <ul>
           <li>
             <a
-              href="https://www.legislation.gov.au/Series/F2015L00386"
+              href="https://www.legislation.gov.au/F2015L00386/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -139,7 +139,7 @@ const extraRequirements: AccordionItemConfig[] = [
         <ul>
           <li>
             <a
-              href="https://www.legislation.gov.au/Series/F2015L00386"
+              href="https://www.legislation.gov.au/F2015L00386/latest/text"
               target="_blank"
               rel="noopener"
             >
