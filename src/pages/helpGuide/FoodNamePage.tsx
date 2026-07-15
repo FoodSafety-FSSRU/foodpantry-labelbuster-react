@@ -220,7 +220,7 @@ const extraRequirements: AccordionItemConfig[] = [
         <ul>
           <li>
             <a
-              href="http://www.comlaw.gov.au/Series/F2015L00383"
+              href="https://www.legislation.gov.au/F2015L00383/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -230,7 +230,7 @@ const extraRequirements: AccordionItemConfig[] = [
           </li>
           <li>
             <a
-              href="http://www.comlaw.gov.au/Series/F2015L00420"
+              href="https://www.legislation.gov.au/F2015L00420/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -267,7 +267,7 @@ const extraRequirements: AccordionItemConfig[] = [
         <ul>
           <li>
             <a
-              href="http://www.comlaw.gov.au/Series/F2015L00487"
+              href="https://www.legislation.gov.au/F2015L00487/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -298,7 +298,7 @@ const extraRequirements: AccordionItemConfig[] = [
         <ul>
           <li>
             <a
-              href="http://www.comlaw.gov.au/Series/F2015L00469"
+              href="https://www.legislation.gov.au/F2015L00469/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -330,7 +330,7 @@ const extraRequirements: AccordionItemConfig[] = [
         <ul>
           <li>
             <a
-              href="http://www.comlaw.gov.au/Series/F2015L00459"
+              href="https://www.legislation.gov.au/F2015L00459/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -340,7 +340,7 @@ const extraRequirements: AccordionItemConfig[] = [
           </li>
           <li>
             <a
-              href="http://www.comlaw.gov.au/Series/F2015L00426"
+              href="https://www.legislation.gov.au/F2015L00426/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -368,7 +368,7 @@ const extraRequirements: AccordionItemConfig[] = [
         <ul>
           <li>
             <a
-              href="http://www.comlaw.gov.au/Series/F2015L00416"
+              href="https://www.legislation.gov.au/F2015L00416/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -403,7 +403,7 @@ const extraRequirements: AccordionItemConfig[] = [
         <ul>
           <li>
             <a
-              href="http://www.comlaw.gov.au/Series/F2015L00389"
+              href="https://www.legislation.gov.au/F2015L00389/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -413,7 +413,7 @@ const extraRequirements: AccordionItemConfig[] = [
           </li>
           <li>
             <a
-              href="http://www.comlaw.gov.au/Series/F2015L00407"
+              href="https://www.legislation.gov.au/F2015L00407/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -426,21 +426,69 @@ const extraRequirements: AccordionItemConfig[] = [
     ),
   },
   {
-    id: "jams",
-    title: "Jams",
+    id: "honey-native",
+    title: "Native bee honey",
     content: (
       <>
+        <p>A food that is sold as native bee honey must:</p>
+        <ol type="a">
+          <li>be native bee honey; and</li>
+          <li>
+            contain:
+          </li>
+          <ol type="i">
+            <li>no less than 50% reducing sugars; and</li>
+            <li>no more than 28% moisture; and</li>
+            <li>no less than 2% trehalulose</li>
+          </ol>
+        </ol>
         <p>
-          If you name a food jam, it must be made from no less than 400 g/kg of
-          fruit.
+          <b>Native bee honey</b> means the natural sweet 
+          substance produced by Australian native stingless 
+          bees from the genera Tetragonula or Austroplebeia. 
         </p>
-        <p>A jam can include conserve, but does not include marmalade.</p>
+        <p>
+          ‘honey’ is a *prescribed name for native bee honey; and
+          the *prescribed name must be presented in conjunction with 
+          a description that adequately describes the true nature of 
+          native bee honey.
+        </p>
+        <p>
+          <b><i>Examples</i></b> 'Native bee honey', 'Native stingless bee honey', 'Australian native bee honey'
+        </p>
         <h4>Further reading</h4>
         <i>Australia New Zealand Food Standards Code</i>
         <ul>
           <li>
             <a
-              href="http://www.comlaw.gov.au/Series/F2015L00459"
+              href="https://www.legislation.gov.au/F2024L00893/asmade/text"
+              target="_blank"
+              rel="noopener"
+            >
+              Standard 2.8.3
+            </a>{" "}
+            Native bee honey
+          </li>
+        </ul>
+      </>
+    ),
+  },
+  {
+    id: "jams",
+    title: "Jams",
+    content: (
+      <>
+        <p>
+          If you name a food 'jam', it must be made from no less than 400 g/kg of
+          fruit.
+        </p>
+        <p>A jam includes conserve, but does not include marmalade.</p>
+        <h4>Further reading</h4>
+        <i>Australia New Zealand Food Standards Code</i>
+        <ul>
+          <li>
+            <a
+              href="https://www.legislation.gov.au/F2015L00459/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -470,7 +518,7 @@ const extraRequirements: AccordionItemConfig[] = [
         <ul>
           <li>
             <a
-              href="http://www.comlaw.gov.au/Series/F2015L00466"
+              href="https://www.legislation.gov.au/F2015L00466/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -493,7 +541,16 @@ const extraRequirements: AccordionItemConfig[] = [
         </p>
         <p>
           There are{" "}
-          <a data-accordion-item="prescribed-names" className="accordion-btn">
+          <a
+            href="#prescribed-names"
+            onClick={(e) => {
+              e.preventDefault();
+              const item = document.getElementById("accordion-item-prescribed-names");
+              const btn = item?.querySelector<HTMLButtonElement>(".accordion-button");
+              if (btn && btn.getAttribute("aria-expanded") === "false") btn.click();
+              item?.scrollIntoView({ behavior: "smooth", block: "center" });
+            }}
+          >
             prescribed names
           </a>{" "}
           for fermented manufactured meat.
@@ -503,7 +560,7 @@ const extraRequirements: AccordionItemConfig[] = [
         <ul>
           <li>
             <a
-              href="http://www.comlaw.gov.au/Series/F2015L00427"
+              href="https://www.legislation.gov.au/F2015L00427/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -531,7 +588,7 @@ const extraRequirements: AccordionItemConfig[] = [
         <ul>
           <li>
             <a
-              href="http://www.comlaw.gov.au/Series/F2015L00383"
+              href="https://www.legislation.gov.au/F2015L00383/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -547,7 +604,7 @@ const extraRequirements: AccordionItemConfig[] = [
           </li>
           <li>
             <a
-              href="http://www.comlaw.gov.au/Series/F2015L00462"
+              href="https://www.legislation.gov.au/F2015L00462/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -557,7 +614,7 @@ const extraRequirements: AccordionItemConfig[] = [
           </li>
           <li>
             <a
-              href="http://www.comlaw.gov.au/Series/F2015L00470"
+              href="https://www.legislation.gov.au/F2015L00470/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -567,7 +624,7 @@ const extraRequirements: AccordionItemConfig[] = [
           </li>
           <li>
             <a
-              href="http://www.comlaw.gov.au/Series/F2015L00413"
+              href="https://www.legislation.gov.au/F2015L00413/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -577,7 +634,7 @@ const extraRequirements: AccordionItemConfig[] = [
           </li>
           <li>
             <a
-              href="http://www.comlaw.gov.au/Series/F2015L00414"
+              href="https://www.legislation.gov.au/F2015L00414/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -587,7 +644,7 @@ const extraRequirements: AccordionItemConfig[] = [
           </li>
           <li>
             <a
-              href="http://www.comlaw.gov.au/Series/F2015L00423"
+              href="https://www.legislation.gov.au/F2015L00423/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -597,7 +654,7 @@ const extraRequirements: AccordionItemConfig[] = [
           </li>
           <li>
             <a
-              href="http://www.comlaw.gov.au/Series/F2015L00424"
+              href="https://www.legislation.gov.au/F2015L00424/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -607,7 +664,7 @@ const extraRequirements: AccordionItemConfig[] = [
           </li>
           <li>
             <a
-              href="http://www.comlaw.gov.au/Series/F2015L00425"
+              href="https://www.legislation.gov.au/F2015L00425/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -647,9 +704,14 @@ const extraRequirements: AccordionItemConfig[] = [
           Standards Code to ensure your label is correct.
         </p>
         <p>
-          Coffee and tea include types that are: caffeinated, decaffeinated,
-          instant or soluble.
+          Coffee and tea include types that are: 
         </p>
+        <ul>
+          <li>caffeinated,</li>
+          <li>decaffeinated,</li>
+          <li>instant or</li>
+          <li>soluble</li>
+        </ul>
         <p>
           <b>If your food is spring water or mineral water:</b>
           <br />
@@ -660,7 +722,7 @@ const extraRequirements: AccordionItemConfig[] = [
         <ul>
           <li>
             <a
-              href="http://www.comlaw.gov.au/Series/F2015L00426"
+              href="https://www.legislation.gov.au/F2015L00426/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -670,7 +732,7 @@ const extraRequirements: AccordionItemConfig[] = [
           </li>
           <li>
             <a
-              href="https://www.legislation.gov.au/Series/F2015L00465"
+              href="https://www.legislation.gov.au/F2015L00465/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -680,7 +742,7 @@ const extraRequirements: AccordionItemConfig[] = [
           </li>
           <li>
             <a
-              href="http://www.comlaw.gov.au/Series/F2015L00487"
+              href="https://www.legislation.gov.au/F2015L00487/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -706,7 +768,7 @@ const extraRequirements: AccordionItemConfig[] = [
         <ul>
           <li>
             <a
-              href="http://www.comlaw.gov.au/Series/F2015L00487"
+              href="https://www.legislation.gov.au/F2015L00487/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -717,6 +779,31 @@ const extraRequirements: AccordionItemConfig[] = [
         </ul>
       </>
     ),
+  },
+  {
+    id: "edible-oils",
+    title: "Edible oils",
+    content: (
+      <>
+        <p>
+          
+        </p>
+        <h4>Further reading</h4>
+        <i>Australia New Zealand Food Standards Code</i>
+        <ul>
+          <li>
+            <a
+              href="https://www.legislation.gov.au/F2015L00460/latest/text"
+              target="_blank"
+              rel="noopener"
+            >
+              Standard 2.4.1
+            </a>{" "}
+            Edible oils
+          </li>
+        </ul>
+      </>
+    )
   },
   {
     id: "oils-margarine",
@@ -736,7 +823,7 @@ const extraRequirements: AccordionItemConfig[] = [
         <ul>
           <li>
             <a
-              href="http://www.comlaw.gov.au/Series/F2015L00461"
+              href="https://www.legislation.gov.au/F2015L00461/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -768,7 +855,7 @@ const extraRequirements: AccordionItemConfig[] = [
         <ul>
           <li>
             <a
-              href="http://www.comlaw.gov.au/Series/F2015L00485"
+              href="https://www.legislation.gov.au/F2015L00485/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -778,7 +865,7 @@ const extraRequirements: AccordionItemConfig[] = [
           </li>
           <li>
             <a
-              href="http://www.comlaw.gov.au/Series/F2015L00487"
+              href="https://www.legislation.gov.au/F2015L00487/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -809,7 +896,7 @@ const extraRequirements: AccordionItemConfig[] = [
         <ul>
           <li>
             <a
-              href="http://www.comlaw.gov.au/Series/F2015L00405"
+              href="https://www.legislation.gov.au/F2015L00405/latest/text"
               target="_blank"
               rel="noopener"
             >
@@ -835,7 +922,7 @@ const extraRequirements: AccordionItemConfig[] = [
         <ul>
           <li>
             <a
-              href="http://www.comlaw.gov.au/Series/F2015L00484"
+              href="https://www.legislation.gov.au/F2015L00484/latest/text"
               target="_blank"
               rel="noopener"
             >
