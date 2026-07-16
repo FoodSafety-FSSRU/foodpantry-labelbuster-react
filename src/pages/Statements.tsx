@@ -732,8 +732,8 @@ export const Statements = ({ onBack, onNext, onCancel }: StatementsProps) => {
             ))}
           </div>
 
-          <div className="milk-and-diary-block">
-            <h4>Milk and diary products</h4>
+          <div className="milk-and-dairy-block">
+            <h4>Milk and dairy products</h4>
             {MILK_AND_DAIRY_CHECKBOX_CONFIGS.map((config) => (
               <CheckboxWithInput
                 label={config.label}
