@@ -61,12 +61,16 @@ export const Ingredients = ({ onBack, onNext, onCancel }: IngredientsProps) => {
               A food label must contain a list of ingredients that have been
               used to make the food. <br /> This is also known as the statement
               of ingredients.
+
+              
             </figcaption>
+            //@todo might need to resize image to be more suitable for veiwers.
             <img
-              src="https://www.qld.gov.au/?a=145922"
+              src="src\assets\ingredients-page-smallfluids.png"
               alt="Example food label with a list of ingredients."
               className="img-fluid"
             />
+            
           </figure>
         </div>
 

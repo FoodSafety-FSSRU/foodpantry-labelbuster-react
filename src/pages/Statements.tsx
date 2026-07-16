@@ -285,7 +285,7 @@ const FOOD_AND_INGREDIENTS_CONFIGS: FoodAndIngredientsConfig[] = [
     ],
   },
   {
-    label: "Food containing alcohol",
+    label: "Food containing alcohol (not including alcoholic beverages)",
     key: "foodContainingAlcohol",
     children: [
       {

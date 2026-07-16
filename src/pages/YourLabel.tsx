@@ -541,9 +541,6 @@ export const YourLabel = ({ onBack, onCancel }: YourLabelProps) => {
               <a href="#extra-requirements">Food with extra requirements</a>
             </li>
             <li>
-              <a href="#download-email">Email your summary</a>
-            </li>
-            <li>
               <a href="#update">Need to update your label?</a>
             </li>
           </ul>
@@ -929,19 +926,6 @@ export const YourLabel = ({ onBack, onCancel }: YourLabelProps) => {
                 </a>
               </li>
             </ul>
-          </div>
-
-          <div className="email-label-info-summary">
-            <h2>Email your label information summary</h2>
-            <p>
-              <b>
-                If you prefer, we can send you your label information summary by
-                providing an email address below. Depending on your email
-                provider, personal information may be transferred outside of
-                Australia. By providing your email address, you voluntarily
-                agree to this transfer.
-              </b>
-            </p>
           </div>
         </div>
       </div>

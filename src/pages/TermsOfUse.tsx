@@ -127,8 +127,8 @@ export const TermsOfUse = ({
         <p>Please note that our terms of use may change over time.</p>
 
         <p>
-          Label Buster is current as of July 2024 and shows information up
-          to and including amendment number 228 of the{" "}
+          Label Buster is current as of July 2026 and shows information up
+          to and including amendment number 251 of the{" "}
           <a
             href="https://www.foodstandards.gov.au/code/Pages/default.aspx"
             target="_blank"
