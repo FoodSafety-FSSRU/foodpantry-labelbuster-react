@@ -243,10 +243,10 @@ export const ProductSheetDocument = ({ data }: { data: ProductSheetData }) => {
         </Text>
 
         <Image
-          src="src\assets\NIP-example.pngg"
+          src="src\assets\NIP-example.png"
           style={{
-            width: 120,
-            height: 40,
+            width: 280.06,
+            height: 310.67,
           }}
         />
 
