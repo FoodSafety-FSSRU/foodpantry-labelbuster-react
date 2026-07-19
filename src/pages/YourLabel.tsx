@@ -5,6 +5,7 @@ import {
   type StatementsFormData,
   type StorageAndUseData,
 } from "../context/FormDataContext";
+import type { ProductSheetData } from "../components/ProductSheetPdf";
 import { useCallback, useMemo, useState } from "react";
 
 type Rule<T> = {
@@ -182,6 +183,8 @@ export const YourLabel = ({ onBack, onCancel }: YourLabelProps) => {
     onBack,
     onCancel,
   );
+
+  const [isGenerating, setIsGenerating] = useState(false);
   const { formData } = useFormData();
   const {
     foodName,
@@ -191,8 +194,6 @@ export const YourLabel = ({ onBack, onCancel }: YourLabelProps) => {
     storageAndUse,
     statements,
   } = formData;
-
-  const [isGenerating, setIsGenerating] = useState(false);
 
   const storageConditionsText = useMemo(
     () => buildMessage(storageAndUse, storageRules),
@@ -303,185 +304,72 @@ export const YourLabel = ({ onBack, onCancel }: YourLabelProps) => {
   const businessState = businessDetails.stateValue.trim();
   const businessPostcode = businessDetails.postcode.trim();
 
+  const sheetData: ProductSheetData = useMemo(
+    () => ({
+      foodName: foodName.foodName,
+      productDescription: foodName.productDescription,
+      business: {
+        name: businessDetails.businessName,
+        addressLine1: businessDetails.addressLine1,
+        addressLine2: businessAddressLine2,
+        suburb: businessSuburb,
+        state: businessState,
+        postcode: businessPostcode,
+      },
+      ingredientList,
+      containsList,
+      statementMessages,
+      dateMarkLabel,
+      dateMarkValue,
+      hasDateMark,
+      lotIdentification,
+      storageConditionsText,
+      directionsText,
+    }),
+    [
+      foodName.foodName,
+      foodName.productDescription,
+      businessDetails.businessName,
+      businessDetails.addressLine1,
+      businessAddressLine2,
+      businessSuburb,
+      businessState,
+      businessPostcode,
+      ingredientList,
+      containsList,
+      statementMessages,
+      dateMarkLabel,
+      dateMarkValue,
+      hasDateMark,
+      lotIdentification,
+      storageConditionsText,
+      directionsText,
+    ],
+  );
+
   const handleDownloadPDF = useCallback(async () => {
     setIsGenerating(true);
     try {
-      // Dynamically import jsPDF
-      const { default: jsPDF } = await import("jspdf");
-      await import("jspdf-autotable");
-
-      const doc = new jsPDF();
-      const pageWidth = doc.internal.pageSize.getWidth();
-      const margin = 15;
-      let yPos = 20;
-
-      // Title
-      doc.setFontSize(18);
-      doc.setFont("helvetica", "bold");
-      doc.text("Label Buster - Product Sheet", margin, yPos);
-      yPos += 10;
-
-      // Date generated
-      doc.setFontSize(10);
-      doc.setFont("helvetica", "normal");
-      doc.text(`Generated: ${new Date().toLocaleDateString()}`, margin, yPos);
-      yPos += 15;
-
-      // Helper function to add section
-      const addSection = (title: string, content: string) => {
-        if (yPos > 250) {
-          doc.addPage();
-          yPos = 20;
-        }
-
-        doc.setFontSize(12);
-        doc.setFont("helvetica", "bold");
-        doc.text(title, margin, yPos);
-        yPos += 7;
-
-        doc.setFontSize(10);
-        doc.setFont("helvetica", "normal");
-        const lines = doc.splitTextToSize(
-          content || "No data provided",
-          pageWidth - margin * 2,
-        );
-        doc.text(lines, margin, yPos);
-        yPos += lines.length * 5 + 5;
-      };
-
-      // Food name and description
-      addSection(
-        "Food Name and Description",
-        `${foodName.foodName || "No name provided"}\n${
-          foodName.productDescription || "No description provided"
-        }`,
-      );
-
-      // Business details
-      const businessAddress = [
-        businessDetails.businessName || "No name provided",
-        businessDetails.addressLine1 || "No address provided",
-        businessAddressLine2,
-        businessSuburb,
-        [businessState, businessPostcode].filter(Boolean).join(", "),
-      ]
-        .filter(Boolean)
-        .join("\n");
-
-      addSection("Business Details", businessAddress);
-
-      // Ingredients
-      addSection("Ingredients", ingredientList || "No data provided");
-
-      // Statements and declarations
-      let statementsText = "";
-      if (containsList.length) {
-        statementsText += `Contains: ${containsList.join(", ")}.\n\n`;
-      }
-      if (statementMessages.length) {
-        statementsText += statementMessages.join(" ");
-      }
-      if (containsList.length) {
-        statementsText +=
-          "\n\nNote: Warning statements must be a minimum size of type of 3 mm. In the case of small packages, a minimum size of type of 1.5 mm is required.";
-      }
-      addSection(
-        "Statements and Declarations",
-        statementsText || "No data provided",
-      );
-
-      // Date marks
-      const dateMarkText = hasDateMark
-        ? `${dateMarkLabel}${dateMarkValue ? ": " + dateMarkValue : ""}`
-        : "No data provided";
-      addSection("Date Marks", dateMarkText);
-
-      // Lot identification
-      addSection("Lot Identification", lotIdentification || "No data provided");
-
-      // Storage conditions and directions
-      let storageText = "";
-      if (hasStorageConditions) {
-        storageText += `Storage conditions: ${storageConditionsText}\n\n`;
-      }
-      if (hasDirections) {
-        storageText += `Directions for use: ${directionsText}`;
-      }
-      addSection(
-        "Storage Conditions and Directions for Use",
-        storageText || "No data provided",
-      );
-
-      // Additional requirements
-      if (yPos > 200) {
-        doc.addPage();
-        yPos = 20;
-      }
-
-      doc.setFontSize(12);
-      doc.setFont("helvetica", "bold");
-      doc.text("Additional Requirements", margin, yPos);
-      yPos += 10;
-
-      doc.setFontSize(10);
-      doc.setFont("helvetica", "normal");
-
-      const additionalReqs = [
-        "• Weight and measures information (visit measurement.gov.au)",
-        "• Nutrition Information Panel (use Food Standards Australia NZ calculator)",
-        "• Country of origin labeling",
-        "• Health Star Rating (optional)",
-      ];
-
-      additionalReqs.forEach((req) => {
-        const lines = doc.splitTextToSize(req, pageWidth - margin * 2);
-        doc.text(lines, margin, yPos);
-        yPos += lines.length * 5 + 2;
-      });
-
-      yPos += 10;
-      doc.setFontSize(11);
-      doc.setFont("helvetica", "bold");
-      doc.setTextColor(214, 0, 0);
-      const warningLines = doc.splitTextToSize(
-        "IMPORTANT: Refer to the Allergen labelling fact sheet to ensure full compliance with Food Standards Code requirements.",
-        pageWidth - margin * 2,
-      );
-      doc.text(warningLines, margin, yPos);
-
-      // Save the PDF
-      doc.save(
-        `Label-Buster-${foodName.foodName || "Product"}-${
-          new Date().toISOString().split("T")[0]
-        }.pdf`,
-      );
+      const [{ pdf }, { ProductSheetDocument }] = await Promise.all([
+        import("@react-pdf/renderer"),
+        import("../components/ProductSheetPdf"),
+      ]);
+      const blob = await pdf(<ProductSheetDocument data={sheetData} />).toBlob();
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `Label-Buster-${foodName.foodName || "Product"}-${
+        new Date().toISOString().split("T")[0]
+      }.pdf`;
+      link.click();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
     } catch (error) {
       console.error("Error generating PDF:", error);
       alert("Failed to generate PDF. Please try again.");
     } finally {
       setIsGenerating(false);
     }
-  }, [
-    businessAddressLine2,
-    businessDetails.addressLine1,
-    businessDetails.businessName,
-    businessPostcode,
-    businessState,
-    businessSuburb,
-    containsList,
-    dateMarkLabel,
-    dateMarkValue,
-    directionsText,
-    foodName.foodName,
-    foodName.productDescription,
-    hasDateMark,
-    hasDirections,
-    hasStorageConditions,
-    ingredientList,
-    lotIdentification,
-    statementMessages,
-    storageConditionsText,
-  ]);
+  }, [sheetData, foodName.foodName]);
 
   return (
     <>
