@@ -1,4 +1,4 @@
-import { Document, Page, StyleSheet, Text, View } from "@react-pdf/renderer";
+import { Document, Page, StyleSheet, Text, View, Image, Link } from "@react-pdf/renderer";
 import type { ReactNode } from "react";
 
 export type ProductSheetData = {
@@ -232,9 +232,23 @@ export const ProductSheetDocument = ({ data }: { data: ProductSheetData }) => {
         <Text style={styles.para}>
           A Nutrition Informational Panel must be added to your food label. The
           Food Standards Australia New Zealand nutrition panel calculator
-          (www.foodstandards.gov.au/industry/npc/Pages/Nutrition-Panel-Calculator-introduction.aspx)
+          (
+          <Link
+              src="www.foodstandards.gov.au/industry/npc/Pages/Nutrition-Panel-Calculator-introduction.aspx"
+            >
+              www.foodstandards.gov.au/industry/npc/Pages/Nutrition-Panel-Calculator-introduction.aspx
+          </Link>  
+          )
           can help you prepare your nutrition information panel.
         </Text>
+
+        <Image
+          src="src\assets\NIP-example.pngg"
+          style={{
+            width: 120,
+            height: 40,
+          }}
+        />
 
         <Row heading="Statements and declarations">
           {statements.length ? (
@@ -280,14 +294,26 @@ export const ProductSheetDocument = ({ data }: { data: ProductSheetData }) => {
         <Text style={styles.h2}>Weight</Text>
         <Text style={styles.para}>
           For information on how to comply with weights and measures laws visit
-          the National Measurement Institute website (www.measurement.gov.au).
+          the National Measurement Institute website (
+            <Link
+              src="www.measurement.gov.au"
+            >
+              www.measurement.gov.au
+            </Link>
+            ).
         </Text>
 
         <Text style={styles.h2}>Country of origin</Text>
         <Text style={styles.para}>
           Information on how to calculate and display mandatory country of
           origin
-          (www.accc.gov.au/business/advertising-promoting-your-business/country-of-origin-claims/country-of-origin-food-labelling)
+          (
+          <Link
+              src="www.accc.gov.au/business/advertising-promoting-your-business/country-of-origin-claims/country-of-origin-food-labelling"
+            >
+              www.accc.gov.au/business/advertising-promoting-your-business/country-of-origin-claims/country-of-origin-food-labelling
+          </Link>
+          )
           can be found on the Australian Competition and Consumer Commission
           website.
         </Text>
@@ -295,9 +321,16 @@ export const ProductSheetDocument = ({ data }: { data: ProductSheetData }) => {
         <Text style={styles.h2}>Health star rating</Text>
         <Text style={styles.para}>
           Information on how to calculate and display a voluntary health star
-          rating (www.healthstarrating.gov.au/calculator) can be found at the
+          rating (
+            <Link
+              src="www.healthstarrating.gov.au/calculator"
+            >
+              www.healthstarrating.gov.au/calculator
+            </Link>
+          ) can be found at the
           Health Star Rating System website.
         </Text>
+        
 
         <View style={styles.footer} fixed>
           <Text>
