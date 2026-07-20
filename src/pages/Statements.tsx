@@ -464,6 +464,10 @@ export const Statements = ({ onBack, onNext, onCancel }: StatementsProps) => {
   const showAlcoholContentInput = Boolean(
     statementData.statementSelections["food-more-than-1.15-alcohol"],
   );
+  const showOilsMargarineInput = Boolean(
+    form.oilsAndMargarine &&
+    statementData.statementSelections["edible-oil-conditions"],
+  );
 
   useEffect(() => {
     if (!showSodiumPotassiumInput && statementData.sodiumPotassiumContent.trim()) {
@@ -476,6 +480,12 @@ export const Statements = ({ onBack, onNext, onCancel }: StatementsProps) => {
       updateStatements({ alcoholContent: "" });
     }
   }, [showAlcoholContentInput, statementData.alcoholContent, updateStatements]);
+
+  useEffect(() => {
+    if (!showOilsMargarineInput && statementData.oilsAndMargarineProcess.trim()) {
+      updateStatements({ oilsAndMargarineProcess: "" });
+    }
+  }, [showOilsMargarineInput, statementData.oilsAndMargarineProcess, updateStatements]);
 
   const { handleBackClick, handleNextClick, handleCancelClick } =
     createNavHandlers(onNext, onBack, onCancel);
@@ -621,6 +631,9 @@ export const Statements = ({ onBack, onNext, onCancel }: StatementsProps) => {
       : null,
     showAlcoholContentInput && statementData.alcoholContent.trim() !== ""
       ? `Alcohol content: ${statementData.alcoholContent.trim()}.`
+      : null,
+    showOilsMargarineInput && statementData.oilsAndMargarineProcess.trim() !== ""
+      ? `${statementData.oilsAndMargarineProcess.trim()}.`
       : null,
   ].filter(Boolean) as string[];
 
@@ -859,6 +872,37 @@ export const Statements = ({ onBack, onNext, onCancel }: StatementsProps) => {
             ))}
 
             <div className="d-flex flex-column gap-3">
+              
+              {showAlcoholContentInput && (
+                <Textarea
+                  label="Alcohol content must be expressed in mL/100 g, mL/100 mL or as the percentage of alcohol by volume."
+                  required={true}
+                  id="alcohol-content"
+                  value={statementData.alcoholContent}
+                  onChange={(event) =>
+                    updateStatements({ alcoholContent: event.target.value })
+                  }
+                  onInput={(event) => toggleInvalidState(event.currentTarget)}
+                  onBlur={(event) => toggleInvalidState(event.currentTarget)}
+                  invalidMessage="Alcohol content must be entered when this statement is selected."
+                />
+              )}
+
+              {showOilsMargarineInput && (
+                <Textarea
+                  label="Describe the nature of the process"
+                  required={true}
+                  id="oils-margarine-content"
+                  value={statementData.oilsAndMargarineProcess}
+                  onChange={(event) =>
+                    updateStatements({ oilsAndMargarineProcess: event.target.value })
+                  }
+                  onInput={(event) => toggleInvalidState(event.currentTarget)}
+                  onBlur={(event) => toggleInvalidState(event.currentTarget)}
+                  invalidMessage="The process for making edible oil must be entered for food that is an edible oil."
+                />
+              )}
+
               {showSodiumPotassiumInput && (
                 <Textarea
                   label="Enter the sodium and potassium content expressed per 100g. You may also include a declaration of the percentage reduction of sodium in the food, relative to salt."
@@ -873,21 +917,6 @@ export const Statements = ({ onBack, onNext, onCancel }: StatementsProps) => {
                   onInput={(event) => toggleInvalidState(event.currentTarget)}
                   onBlur={(event) => toggleInvalidState(event.currentTarget)}
                   invalidMessage="The sodium and potassium content must be entered for reduced sodium salt mixtures and salt substitutes."
-                />
-              )}
-
-              {showAlcoholContentInput && (
-                <Textarea
-                  label="Alcohol content must be expressed in mL/100 g, mL/100 mL or as the percentage of alcohol by volume."
-                  required={true}
-                  id="alcohol-content"
-                  value={statementData.alcoholContent}
-                  onChange={(event) =>
-                    updateStatements({ alcoholContent: event.target.value })
-                  }
-                  onInput={(event) => toggleInvalidState(event.currentTarget)}
-                  onBlur={(event) => toggleInvalidState(event.currentTarget)}
-                  invalidMessage="Alcohol content must be entered when this statement is selected."
                 />
               )}
 
