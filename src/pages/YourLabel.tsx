@@ -173,6 +173,82 @@ const dateMarkLabels: Record<string, string> = {
   "none-mark": "No date field required",
 };
 
+const allergenPreviewKeywords = [
+  "wheat",
+  "cereal",
+  "cereals",
+  "gluten",
+  "barley",
+  "oats",
+  "rye",
+  "egg",
+  "crustacea",
+  "crab",
+  "crayfish",
+  "lobster",
+  "prawn",
+  "prawns",
+  "fish",
+  "mollusc",
+  "mussel",
+  "oyster",
+  "octopus",
+  "squid",
+  "clam",
+  "sulphite",
+  "sulphites",
+  "lupin",
+  "soy",
+  "soya",
+  "soybean",
+  "soybeans",
+  "milk",
+  "whey",
+  "casein",
+  "cream",
+  "butter",
+  "almond",
+  "brazil nut",
+  "brazilnut",
+  "cashew",
+  "hazelnut",
+  "macadamia",
+  "peanut",
+  "peanuts",
+  "pecan",
+  "pine nut",
+  "pinenut",
+  "pistachio",
+  "sesame",
+  "walnut",
+];
+
+const isAllergenPreviewIngredient = (ingredient: string) => {
+  const normalizedIngredient = ingredient.trim().toLowerCase();
+
+  return allergenPreviewKeywords.some((keyword) =>
+    normalizedIngredient.includes(keyword),
+  );
+};
+
+const renderIngredientPreview = (ingredientText: string) => {
+  const items = ingredientText
+    .split(",")
+    .map((ingredient) => ingredient.trim())
+    .filter(Boolean);
+
+  return items.map((ingredient, index) => (
+    <span key={`${ingredient}-${index}`}>
+      {index > 0 ? ", " : ""}
+      {isAllergenPreviewIngredient(ingredient) ? (
+        <strong>{ingredient}</strong>
+      ) : (
+        ingredient
+      )}
+    </span>
+  ));
+};
+
 type YourLabelProps = {
   onBack?: () => void;
   onCancel?: () => void;
@@ -516,7 +592,9 @@ export const YourLabel = ({ onBack, onCancel }: YourLabelProps) => {
                   </tr>
                   <tr>
                     <td>Ingredients</td>
-                    <td>{ingredientList || "no data provided"}</td>
+                    <td>
+                      {ingredientList ? renderIngredientPreview(ingredientList) : "no data provided"}
+                    </td>
                   </tr>
                   <tr>
                     <td>Weight</td>
@@ -693,7 +771,7 @@ export const YourLabel = ({ onBack, onCancel }: YourLabelProps) => {
                   <div>
                     <p>
                       <strong>Ingredients:</strong>{" "}
-                      {ingredientList || "no data provided"}
+                      {ingredientList ? renderIngredientPreview(ingredientList) : "no data provided"}
                     </p>
                     <div>
                       <p>
