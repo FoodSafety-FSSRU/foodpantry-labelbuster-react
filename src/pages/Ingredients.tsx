@@ -23,6 +23,76 @@ const options: Option[] = [
   { label: "No", value: "2" },
 ];
 
+const allergenKeywords = [
+  "wheat",
+  "cereal",
+  "cereals",
+  "gluten",
+  "barley",
+  "oats",
+  "rye",
+  "egg",
+  "crustacea",
+  "crab",
+  "crayfish",
+  "lobster",
+  "prawn",
+  "prawns",
+  "fish",
+  "mollusc",
+  "mussel",
+  "oyster",
+  "octopus",
+  "squid",
+  "clam",
+  "sulphite",
+  "sulphites",
+  "lupin",
+  "soy",
+  "soya",
+  "soybean",
+  "soybeans",
+  "milk",
+  "whey",
+  "casein",
+  "cream",
+  "butter",
+  "almond",
+  "brazil nut",
+  "brazilnut",
+  "cashew",
+  "hazelnut",
+  "macadamia",
+  "peanut",
+  "peanuts",
+  "pecan",
+  "pine nut",
+  "pinenut",
+  "pistachio",
+  "sesame",
+  "walnut",
+];
+
+const isAllergenIngredient = (ingredient: string) => {
+  const normalizedIngredient = ingredient.trim().toLowerCase();
+
+  return allergenKeywords.some((keyword) => normalizedIngredient.includes(keyword));
+};
+
+const renderIngredientPreview = (ingredientText: string) => {
+  const items = ingredientText
+    .split(",")
+    .map((ingredient) => ingredient.trim())
+    .filter(Boolean);
+
+  return items.map((ingredient, index) => (
+    <span key={`${ingredient}-${index}`}>
+      {index > 0 ? ", " : ""}
+      {isAllergenIngredient(ingredient) ? <strong>{ingredient}</strong> : ingredient}
+    </span>
+  ));
+};
+
 export const Ingredients = ({ onBack, onNext, onCancel }: IngredientsProps) => {
   const [guideOpen, setGuideOpen] = useState(false);
   const [activeSectionId, setActiveSectionId] = useState<string | null>(null);
@@ -50,6 +120,7 @@ export const Ingredients = ({ onBack, onNext, onCancel }: IngredientsProps) => {
     .join(", ");
   const hasIngredientRows = ingredientRows.some((row) => row[0]?.trim().length);
   const nextDisabled = !form.exemptIngredients || !hasIngredientRows;
+  const renderedIngredientPreview = renderIngredientPreview(ingredientList);
 
   return (
     <>
@@ -567,7 +638,7 @@ export const Ingredients = ({ onBack, onNext, onCancel }: IngredientsProps) => {
                   alertMessage={
                     <p>
                       <b>Ingredients:</b>
-                      {ingredientList ? ` ${ingredientList}` : " "}
+                      {ingredientList ? <> {renderedIngredientPreview}</> : " "}
                     </p>
                   }
                 />
