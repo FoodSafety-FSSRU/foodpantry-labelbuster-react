@@ -290,8 +290,12 @@ export const YourLabel = ({ onBack, onCancel }: YourLabelProps) => {
         statements.statementSelections["food-more-than-1.15-alcohol"]
           ? `Alcohol content: ${statements.alcoholContent.trim()}.`
           : null,
+        statements.oilsAndMargarineProcess.trim() &&
+        statements.statementSelections["edible-oil-conditions"]
+          ? `${statements.oilsAndMargarineProcess.trim()}.`
+          : null,
       ].filter(Boolean) as string[],
-    [statements.statementSelections, statements.sodiumPotassiumContent, statements.alcoholContent],
+    [statements.statementSelections, statements.sodiumPotassiumContent, statements.alcoholContent, statements.oilsAndMargarineProcess],
   );
 
   const dateMarkLabel = dateMarks.dateMarkType
