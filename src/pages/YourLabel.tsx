@@ -282,11 +282,16 @@ export const YourLabel = ({ onBack, onCancel }: YourLabelProps) => {
         statements.statementSelections["bottled-water-with-fluoride"]
           ? "The product contains added fluoride."
           : null,
-        statements.sodiumPotassiumContent.trim()
+        statements.sodiumPotassiumContent.trim() &&
+        statements.statementSelections["reduced-sodium-salt-mixtures"]
           ? `Sodium and potassium content: ${statements.sodiumPotassiumContent.trim()}.`
           : null,
+        statements.alcoholContent.trim() &&
+        statements.statementSelections["food-more-than-1.15-alcohol"]
+          ? `Alcohol content: ${statements.alcoholContent.trim()}.`
+          : null,
       ].filter(Boolean) as string[],
-    [statements.statementSelections, statements.sodiumPotassiumContent],
+    [statements.statementSelections, statements.sodiumPotassiumContent, statements.alcoholContent],
   );
 
   const dateMarkLabel = dateMarks.dateMarkType

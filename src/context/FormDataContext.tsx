@@ -134,6 +134,7 @@ export type StatementsData = {
   form: StatementsFormData;
   statementSelections: Record<string, boolean>;
   sodiumPotassiumContent: string;
+  alcoholContent: string;
 };
 
 export type StepKey =
@@ -320,6 +321,7 @@ const initialFormData: FormData = {
     },
     statementSelections: {},
     sodiumPotassiumContent: "",
+    alcoholContent: "",
   },
 };
 
