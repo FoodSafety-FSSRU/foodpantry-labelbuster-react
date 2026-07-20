@@ -551,9 +551,9 @@ export const YourLabel = ({ onBack, onCancel }: YourLabelProps) => {
                     <td>
                       <p>
                         <b>{containsList.length ? "Contains:" : ""}</b>
-                        {containsList.length
+                        <b>{containsList.length
                           ? ` ${containsList.join(", ")}.`
-                          : ""}
+                          : ""}</b>
                         <br />
                       </p>
                       <p className="wrap">
@@ -689,9 +689,9 @@ export const YourLabel = ({ onBack, onCancel }: YourLabelProps) => {
                     <div>
                       <p>
                         <b>{containsList.length ? "Contains:" : ""}</b>
-                        {containsList.length
+                        <b>{containsList.length
                           ? ` ${containsList.join(", ")}.`
-                          : ""}
+                          : ""}</b>
                         <br />
                       </p>
                       <p className="wrap">

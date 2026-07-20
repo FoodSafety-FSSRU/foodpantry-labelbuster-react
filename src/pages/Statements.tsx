@@ -774,9 +774,11 @@ export const Statements = ({ onBack, onNext, onCancel }: StatementsProps) => {
               <>
                 <p>
                   <strong>Contains</strong>
+                  <b>
                   {selectedLabels.length > 0
                     ? ` ${selectedLabels.join(", ")}`
                     : " "}
+                  </b>
                 </p>
               </>
             }

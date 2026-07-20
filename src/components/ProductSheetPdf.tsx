@@ -223,7 +223,13 @@ export const ProductSheetDocument = ({ data }: { data: ProductSheetData }) => {
 
         <Row heading="Ingredients" secondary>
           <Line>
-            {data.ingredientList ? `Ingredients: ${data.ingredientList}` : NA}
+            {data.ingredientList ? (
+              <Text>
+                Ingredients: <Text style={styles.bold}>{data.ingredientList}</Text>
+              </Text>
+            ) : (
+              NA
+            )}
           </Line>
         </Row>
 
@@ -242,6 +248,7 @@ export const ProductSheetDocument = ({ data }: { data: ProductSheetData }) => {
           can help you prepare your nutrition information panel.
         </Text>
 
+        {/* @todo Example NIP image (static, full width). Replace with real uploaded asset */}
         <Image
           src="src\assets\NIP-example.png"
           style={{
