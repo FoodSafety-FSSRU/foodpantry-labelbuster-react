@@ -518,28 +518,7 @@ export const YourLabel = ({ onBack, onCancel }: YourLabelProps) => {
             </li>
           </ul>
 
-          {/* Download PDF Button */}
-          <div className="my-3">
-            <button
-              className="btn btn-primary"
-              onClick={handleDownloadPDF}
-              disabled={isGenerating}
-            >
-              {isGenerating ? (
-                <>
-                  <span
-                    className="spinner-border spinner-border-sm me-2"
-                    role="status"
-                    aria-hidden="true"
-                  ></span>
-                  Generating PDF...
-                </>
-              ) : (
-                <span> Download PDF</span>
-              )}
-            </button>
-          </div>
-        </div>
+          
 
         <div className="d-flex flex-column gap-3">
           <div className="product-sheet">
@@ -902,6 +881,50 @@ export const YourLabel = ({ onBack, onCancel }: YourLabelProps) => {
               </li>
             </ul>
           </div>
+
+          <div className="download-pdf">
+            <h2>Download your product sheet here</h2>
+            <p>
+              You can download a pdf of your label information summary below. 
+            </p>
+
+            {/* Download PDF Button */}
+            <div className="my-3">
+              <button
+                className="btn btn-primary"
+                onClick={handleDownloadPDF}
+                disabled={isGenerating}
+              >
+                {isGenerating ? (
+                  <>
+                    <span
+                      className="spinner-border spinner-border-sm me-2"
+                      role="status"
+                      aria-hidden="true"
+                    ></span>
+                    Generating PDF...
+                  </>
+                ) : (
+                  <span> Download your label (PDF)</span>
+                )}
+              </button>
+            </div>
+          </div>
+
+          
+
+          <div className="need-to-change-your-food-label">
+            <h2>Need to update your food label</h2>
+            <p>
+              If you would like to update details in your food 
+              label, such as different flavours or ingredients, 
+              you can go back and update your answers by clicking 
+              on the relevant step. You can then regenerate your 
+              label with these new details.
+            </p>
+          </div>
+
+        </div>
         </div>
       </div>
 
