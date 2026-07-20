@@ -130,6 +130,62 @@ const Line = ({ children }: { children: ReactNode }) => (
   <Text style={styles.rowValueLine}>{children}</Text>
 );
 
+const allergenKeywordMap: Record<string, string[]> = {
+  "cereals containing gluten": ["cereal", "cereals", "gluten", "wheat", "barley", "oats", "rye", "grain", "grains"],
+  wheat: ["wheat"],
+  egg: ["egg"],
+  crustacea: ["crustacea", "crab", "crayfish", "lobster", "prawn", "prawns"],
+  fish: ["fish"],
+  mollusc: ["mollusc", "mussel", "oyster", "octopus", "squid", "calamari", "clam"],
+  sulphites: ["sulphite", "sulphites"],
+  lupin: ["lupin"],
+  soybeans: ["soybean", "soybeans", "soy", "soya"],
+  milk: ["milk", "whey", "casein", "cream", "butter"],
+  almond: ["almond"],
+  "brazil nut": ["brazil nut", "brazilnut"],
+  cashew: ["cashew"],
+  hazelnut: ["hazelnut"],
+  macadamia: ["macadamia"],
+  peanuts: ["peanut", "peanuts"],
+  pecan: ["pecan"],
+  "pine nut": ["pine nut", "pinenut"],
+  pistachio: ["pistachio"],
+  "sesame seed": ["sesame seed", "sesameseed", "sesame"],
+  walnut: ["walnut"],
+};
+
+const isAllergenIngredient = (ingredient: string, allergenLabels: string[]) => {
+  const normalizedIngredient = ingredient.trim().toLowerCase();
+
+  return allergenLabels.some((label) => {
+    const normalizedLabel = label.trim().toLowerCase();
+    const keywords = allergenKeywordMap[normalizedLabel] ?? [normalizedLabel];
+
+    return keywords.some((keyword) => normalizedIngredient.includes(keyword));
+  });
+};
+
+const renderIngredientList = (ingredientList: string, allergenLabels: string[]) => {
+  if (!ingredientList) {
+    return null;
+  }
+
+  return ingredientList
+    .split(",")
+    .map((item) => item.trim())
+    .filter(Boolean)
+    .map((ingredient, index) => {
+      const isAllergen = isAllergenIngredient(ingredient, allergenLabels);
+
+      return (
+        <Text key={`${ingredient}-${index}`}>
+          {index > 0 ? ", " : ""}
+          {isAllergen ? <Text style={styles.bold}>{ingredient}</Text> : ingredient}
+        </Text>
+      );
+    });
+};
+
 /**
  * The downloadable Product Sheet PDF — matches the Product Sheet template
  * (section order and wording) and the original product-sheet styling
@@ -150,6 +206,16 @@ export const ProductSheetDocument = ({ data }: { data: ProductSheetData }) => {
       : null,
     ...data.statementMessages,
   ].filter(Boolean) as string[];
+
+  const renderedStatements = statements.map((statement, index) => {
+    const isContainsStatement = statement.startsWith("Contains:");
+
+    return (
+      <Line key={`${statement}-${index}`}>
+        {isContainsStatement ? <Text style={styles.bold}>{statement}</Text> : statement}
+      </Line>
+    );
+  });
 
   return (
     <Document title="Label Buster - Product Sheet">
@@ -225,7 +291,7 @@ export const ProductSheetDocument = ({ data }: { data: ProductSheetData }) => {
           <Line>
             {data.ingredientList ? (
               <Text>
-                Ingredients: <Text style={styles.bold}>{data.ingredientList}</Text>
+                Ingredients: {renderIngredientList(data.ingredientList, data.containsList)}
               </Text>
             ) : (
               NA
@@ -258,11 +324,7 @@ export const ProductSheetDocument = ({ data }: { data: ProductSheetData }) => {
         />
 
         <Row heading="Statements and declarations">
-          {statements.length ? (
-            statements.map((line, i) => <Line key={i}>{line}</Line>)
-          ) : (
-            <Line>{NA}</Line>
-          )}
+          {statements.length ? renderedStatements : <Line>{NA}</Line>}
         </Row>
 
         <Row heading="Date mark" secondary>

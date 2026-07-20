@@ -194,11 +194,8 @@ export const Ingredients = ({ onBack, onNext, onCancel }: IngredientsProps) => {
                     <p>
                       For example: The ingredient list would show the dark
                       chocolate chips in a muffin as:
-                      <b>
-                        {" "}
                         dark chocolate chips [sugar, cocoa mass, cocoa butter,
                         emulsifier (soy lecithin), natural vanilla flavour].
-                      </b>
                     </p>
                   </>
                 }
@@ -287,9 +284,10 @@ export const Ingredients = ({ onBack, onNext, onCancel }: IngredientsProps) => {
                       Generic names may be used to describe the ingredient.{" "}
                     </span>
                     <span>
-                      Cheese, cocoa butter, crystallised fruit, fruit, gum
-                      bases, herbs, meat, milk protein, poultry meat, spices and
-                      vegetables can be used as a generic name without any
+                      Cereals, cheese, cocoa butter, crystallised fruit, fish 
+                      (excludes crustaceans and molluscs), fruit, gum bases, 
+                      herbs, meat, milk protein, poultry meat, spices and 
+                      vegetable can be used as generic names without any 
                       conditions.
                     </span>
                     <span>
