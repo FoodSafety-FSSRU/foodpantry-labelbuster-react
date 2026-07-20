@@ -773,7 +773,7 @@ export const Statements = ({ onBack, onNext, onCancel }: StatementsProps) => {
             alertMessage={
               <>
                 <p>
-                  <strong>Contains</strong>
+                  <strong>Contains:</strong>
                   <b>
                   {selectedLabels.length > 0
                     ? ` ${selectedLabels.join(", ")}`
