@@ -119,7 +119,8 @@ export const Ingredients = ({ onBack, onNext, onCancel }: IngredientsProps) => {
     .filter((value): value is string => !!value)
     .join(", ");
   const hasIngredientRows = ingredientRows.some((row) => row[0]?.trim().length);
-  const nextDisabled = !form.exemptIngredients || !hasIngredientRows;
+  const nextDisabled =
+    !form.exemptIngredients || !form.allergens || !hasIngredientRows;
   const renderedIngredientPreview = renderIngredientPreview(ingredientList);
 
   return (
@@ -363,22 +364,11 @@ export const Ingredients = ({ onBack, onNext, onCancel }: IngredientsProps) => {
                     </span>
                     <span>
                       {" "}
-                      <a href="#bcr" onClick={handleGuideLink("bcr")}>
-                        Cereals
-                      </a>
-                      ,{" "}
                       <a
                         href="#oils-margarine"
                         onClick={handleGuideLink("oils-margarine")}
                       >
                         fats or oils
-                      </a>
-                      ,{" "}
-                      <a
-                        href="#fish-seafood"
-                        onClick={handleGuideLink("fish-seafood")}
-                      >
-                        fish
                       </a>
                       ,{" "}
                       <a
@@ -393,13 +383,6 @@ export const Ingredients = ({ onBack, onNext, onCancel }: IngredientsProps) => {
                         onClick={handleGuideLink("meat-prod")}
                       >
                         offal
-                      </a>
-                      ,{" "}
-                      <a
-                        href="#nuts-seeds"
-                        onClick={handleGuideLink("nuts-seeds")}
-                      >
-                        nuts
                       </a>
                       ,{" "}
                       <a href="#bcr" onClick={handleGuideLink("bcr")}>
@@ -552,17 +535,35 @@ export const Ingredients = ({ onBack, onNext, onCancel }: IngredientsProps) => {
                   For example:
                   <ul>
                     <li>
+                      An ingredient of a flavouring substance; or
+                    </li>
+                    <li>A volatile ingredient which is completely removed during processing; or</li>
+                    <li>
+                      Added water that:
+                      <ol type="i">
+                        <li>is added to reconstitute dehydrated or concentrated ingredients; or</li>
+                        <li>forms part of broth, brine or syrup that is declared in the statement 
+                          of ingredients or is part of the name of the food; or</li>
+                          <li>constitutes less than 5% of the food; or</li>
+                      </ol>
+                    </li>
+                    <li>
                       A substance or food that is used as a processing aid.
                     </li>
-                    <li>An ingredient of a flavouring substance.</li>
-                    <li>
-                      An ingredient such as water or alcohol, that is completely
-                      removed during the manufacture of the food.
-                    </li>
-                    <li>
-                      Added water that forms part of broth, brine or syrup.
-                    </li>
                   </ul>
+                  Note: An exempt ingredient does not include:
+                  <ol type="1">
+                    <li>Added caffeine</li>
+                    <li>Any of the following substances added to a food for sale as a flavouring 
+                      substance or as an ingredient of a flavouring substance-
+                      <p>
+                        `L-glutamic acid, monosodium glutamate, monopotassium L-glutamate, calcium 
+                        di-L-glutamate, monoammonium L-glutamate, magnesium di-L-glutamate, disodium 
+                        guanylate, disodium inosinate, disodium-5′-ribonucleotides.
+                      </p>
+                      </li>
+
+                  </ol>
                 </div>
 
                 <RadioGroup
@@ -588,6 +589,66 @@ export const Ingredients = ({ onBack, onNext, onCancel }: IngredientsProps) => {
                     </a>
                     do not need to be included in the ingredient list.
                   </p>
+                }
+              />
+            )}
+
+            {form.exemptIngredients && (
+              <div className="mt-4">
+                <p className="fw-bold">
+                  Does your food contain allergens?
+                  <abbr className="required text-danger" title="(required)">
+                    *
+                  </abbr>
+                </p>
+                <p>
+                  <small>
+                    Allergens are cereals such as barley, oats and rye that
+                    contain gluten, wheat, milk, egg, peanuts, tree nuts (i.e.:
+                    almond, Brazil nut, cashew, hazelnut, macadamia, pecan, pine
+                    nut, pistachio and walnut), fish, crustacea, molluscs,
+                    sesame, soybeans, lupin and sulphites.
+                  </small>
+                </p>
+                <RadioGroup
+                  name="allergens"
+                  options={options}
+                  value={form.allergens}
+                  onChange={setField("allergens")}
+                  inline
+                />
+              </div>
+            )}
+
+            {form.allergens === "1" && (
+              <Alert
+                alertHeading="Required names"
+                alertMessage={
+                  <>
+                    <p>
+                      Allergens must be added to the ingredients list using the{" "}
+                      <a
+                        href="#required-name"
+                        onClick={handleGuideLink("required-name")}
+                      >
+                        required name
+                      </a>
+                      . The required name must be displayed as <b>bold text</b>.
+                    </p>
+                    <p>
+                      For example: The ingredient list for the Strawberry Yoghurt
+                      Crunch shows milk, oats, soy, pecans and{" "}
+                      almonds as allergens using the required names.
+                    </p>
+                    <p>
+                      <b>Ingredients:</b> Yoghurt (55%) [skim <b>milk</b>, cream (<b>milk</b>), 
+                      live yoghurt cultures, intense sweetner (962)], strawberries (21%), 
+                      rolled <b>oats</b>, banana (4.5%), dark choclate (5%) [sugar, <b>milk</b> 
+                      {" "}solids, cocoa butter, cocoa mass, emulsifiers (322 (<b>soy</b>), 475), 
+                      flavours], honey, dried figs, <b>pecans</b>, <b>almonds</b>, sunflower 
+                      seeds, vanilla bean extract [thickener (413)], cinnamon
+                    </p>
+                  </>
                 }
               />
             )}

@@ -24,6 +24,7 @@ export type IngredientsFormState = {
   ingredientGenericName: "1" | "2" | null;
   foodAdditives: "1" | "2" | null;
   exemptIngredients: "1" | "2" | null;
+  allergens: "1" | "2" | null;
 };
 
 export type LimitationsData = {
@@ -238,6 +239,7 @@ const initialFormData: FormData = {
       ingredientGenericName: null,
       foodAdditives: null,
       exemptIngredients: null,
+      allergens: null,
     },
   },
   storageAndUse: {
