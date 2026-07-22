@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { createNavHandlers, useGuideNavigation } from "./help";
 import { StatementsPage } from "./helpGuide/StatementsPage";
 import {
@@ -454,6 +454,7 @@ const WARNING_HINT =
 export const Statements = ({ onBack, onNext, onCancel }: StatementsProps) => {
   const [guideOpen, setGuideOpen] = useState(false);
   const [activeSectionId, setActiveSectionId] = useState<string | null>(null);
+  const mainContentRef = useRef<HTMLDivElement>(null);
   const { formData, updateStatements } = useFormData();
   const statementData = formData.statements;
   const form = statementData.form;
@@ -468,6 +469,14 @@ export const Statements = ({ onBack, onNext, onCancel }: StatementsProps) => {
     form.oilsAndMargarine &&
     statementData.statementSelections["edible-oil-conditions"],
   );
+
+  useEffect(() => {
+    if (mainContentRef.current) {
+      mainContentRef.current.scrollIntoView({ behavior: "auto", block: "start" });
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, []);
 
   useEffect(() => {
     if (!showSodiumPotassiumInput && statementData.sodiumPotassiumContent.trim()) {
@@ -643,7 +652,7 @@ export const Statements = ({ onBack, onNext, onCancel }: StatementsProps) => {
 
   return (
     <>
-      <div className="main-content">
+      <div className="main-content" ref={mainContentRef}>
         <div className="title-image">
           <h1>Statements</h1>
           <figure className="d-flex flex-column flex-lg-row gap-3 align-items-start">

@@ -367,7 +367,7 @@ const generalRequirements: AccordionItemConfig[] = [
             >
               required names
             </a>{" "}
-            and format the required name in bold text
+            and format the required name in <b>bold</b> text
           </li>
         </ul>
         <p>
@@ -982,8 +982,8 @@ const generalRequirements: AccordionItemConfig[] = [
             </a>
           </li>
           <li>
-            <a data-accordion-item="fish-seafood" className="accordion-btn">
-              fish
+            <a data-accordion-item="milk-dairy" className="accordion-btn">
+              milk solids
             </a>
           </li>
           <li>
@@ -1192,41 +1192,41 @@ const generalRequirements: AccordionItemConfig[] = [
         <ul>
           <li>
             Fish, crustacea and molluscs must be separately declared in both the
-            ingredient list and summary statement, using "fish", "crustacean"
-            and "mollusc" as required names.
+            ingredient list and summary statement, using "<b>fish</b>", "<b>crustacean</b>"
+            and "<b>mollusc</b>" as required names.
           </li>
           <li>
             The following tree nuts must be declared separately in the
             ingredient list and summary statement using the required name -
-            "almond", "Brazil nut", "cashew", "hazelnut", "macadamia", "pecan",
-            "pine nut", "pistachio", "walnut".
+            "<b>almond</b>", "<b>Brazil nut</b>", "<b>cashew</b>", "<b>hazelnut</b>", "<b>macadamia</b>", "<b>pecan</b>",
+            "<b>pine nut</b>", "<b>pistachio</b>", "<b>walnut</b>".
           </li>
           <li>
-            "Wheat" must be used as the required name in the ingredient list and
+            "<b>Wheat</b>" must be used as the required name in the ingredient list and
             summary statement when wheat (or its hybrids) is present. If gluten
-            is present, then "gluten" must also be included in the summary
+            is present, then "<b>gluten</b>" must also be included in the summary
             statement.
           </li>
           <li>
-            "Rye", "barley" and "oats" (if they contain gluten) must be used as
+            "<b>Rye</b>", "<b>barley</b>" and "<b>oats</b>" (if they contain gluten) must be used as
             the required names in the ingredient list when these cereals (or
             their hybrids) are present. However, they must be declared as
-            "gluten" in the summary statement.
+            "<b>gluten</b>" in the summary statement.
           </li>
           <li>
-            Soybean must be declared in the ingredient list as either "soy",
-            "soya" or "soybean" and in the summary statement as "soy".
+            Soybean must be declared in the ingredient list as either "<b>soy</b>",
+            "<b>soya</b>" or "<b>soybean</b>" and in the summary statement as "<b>soy</b>".
           </li>
           <li>
             The required names for other allergens for use in the ingredient
-            list and summary statement are "sulphites" (when added in
-            concentrations of 10 mg/kg or more), "milk", "egg", "sesame",
-            "lupin" and "peanut".
+            list and summary statement are "<b>sulphites</b>" (when added in
+            concentrations of 10 mg/kg or more), "<b>milk</b>", "<b>egg</b>", "<b>sesame</b>",
+            "<b>lupin</b>" and "<b>peanut</b>".
           </li>
           <li>
-            The term "processing aid" (or its plural) must be listed in the
+            The term "<b>processing aid</b>" (or its plural) must be listed in the
             ingredient list in association with the allergen(s) it contains or
-            is derived from, e.g. processing aids (wheat, egg).
+            is derived from, e.g. processing aids (<b>wheat</b>, <b>egg</b>).
           </li>
         </ul>
         <p>
