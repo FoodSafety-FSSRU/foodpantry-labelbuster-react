@@ -73,10 +73,20 @@ const allergenKeywords = [
   "walnut",
 ];
 
-const isAllergenIngredient = (ingredient: string) => {
+const getAllergenKeywordInIngredient = (ingredient: string): string | null => {
   const normalizedIngredient = ingredient.trim().toLowerCase();
 
-  return allergenKeywords.some((keyword) => normalizedIngredient.includes(keyword));
+  for (const keyword of allergenKeywords) {
+    const pluralForm = keyword.endsWith('s') ? keyword : keyword + 's';
+    
+    if (normalizedIngredient.includes(keyword)) {
+      return keyword;
+    }
+    if (normalizedIngredient.includes(pluralForm)) {
+      return pluralForm;
+    }
+  }
+  return null;
 };
 
 const renderIngredientPreview = (ingredientText: string) => {
@@ -85,12 +95,32 @@ const renderIngredientPreview = (ingredientText: string) => {
     .map((ingredient) => ingredient.trim())
     .filter(Boolean);
 
-  return items.map((ingredient, index) => (
-    <span key={`${ingredient}-${index}`}>
-      {index > 0 ? ", " : ""}
-      {isAllergenIngredient(ingredient) ? <strong>{ingredient}</strong> : ingredient}
-    </span>
-  ));
+  return items.map((ingredient, index) => {
+    const allergenKeyword = getAllergenKeywordInIngredient(ingredient);
+    
+    if (allergenKeyword) {
+      const parts = ingredient.split(new RegExp(`(${allergenKeyword})`, 'i'));
+      return (
+        <span key={`${ingredient}-${index}`}>
+          {index > 0 ? ", " : ""}
+          {parts.map((part, i) =>
+            part.toLowerCase() === allergenKeyword ? (
+              <strong key={i}>{part}</strong>
+            ) : (
+              part
+            )
+          )}
+        </span>
+      );
+    }
+
+    return (
+      <span key={`${ingredient}-${index}`}>
+        {index > 0 ? ", " : ""}
+        {ingredient}
+      </span>
+    );
+  });
 };
 
 export const Ingredients = ({ onBack, onNext, onCancel }: IngredientsProps) => {

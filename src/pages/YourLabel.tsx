@@ -223,12 +223,20 @@ const allergenPreviewKeywords = [
   "walnut",
 ];
 
-const isAllergenPreviewIngredient = (ingredient: string) => {
+const getAllergenPreviewKeywordInIngredient = (ingredient: string): string | null => {
   const normalizedIngredient = ingredient.trim().toLowerCase();
 
-  return allergenPreviewKeywords.some((keyword) =>
-    normalizedIngredient.includes(keyword),
-  );
+  for (const keyword of allergenPreviewKeywords) {
+    const pluralForm = keyword.endsWith('s') ? keyword : keyword + 's';
+    
+    if (normalizedIngredient.includes(keyword)) {
+      return keyword;
+    }
+    if (normalizedIngredient.includes(pluralForm)) {
+      return pluralForm;
+    }
+  }
+  return null;
 };
 
 const renderIngredientPreview = (ingredientText: string) => {
@@ -237,16 +245,32 @@ const renderIngredientPreview = (ingredientText: string) => {
     .map((ingredient) => ingredient.trim())
     .filter(Boolean);
 
-  return items.map((ingredient, index) => (
-    <span key={`${ingredient}-${index}`}>
-      {index > 0 ? ", " : ""}
-      {isAllergenPreviewIngredient(ingredient) ? (
-        <strong>{ingredient}</strong>
-      ) : (
-        ingredient
-      )}
-    </span>
-  ));
+  return items.map((ingredient, index) => {
+    const allergenKeyword = getAllergenPreviewKeywordInIngredient(ingredient);
+    
+    if (allergenKeyword) {
+      const parts = ingredient.split(new RegExp(`(${allergenKeyword})`, 'i'));
+      return (
+        <span key={`${ingredient}-${index}`}>
+          {index > 0 ? ", " : ""}
+          {parts.map((part, i) =>
+            part.toLowerCase() === allergenKeyword ? (
+              <strong key={i}>{part}</strong>
+            ) : (
+              part
+            )
+          )}
+        </span>
+      );
+    }
+
+    return (
+      <span key={`${ingredient}-${index}`}>
+        {index > 0 ? ", " : ""}
+        {ingredient}
+      </span>
+    );
+  });
 };
 
 type YourLabelProps = {
@@ -522,7 +546,7 @@ export const YourLabel = ({ onBack, onCancel }: YourLabelProps) => {
 
         <div className="d-flex flex-column gap-3">
           <div className="product-sheet">
-            <h2>Product Sheet</h2>
+            <h2>Product sheet</h2>
             <p>
               You can take this information to a printer or graphic designer to
               create a label or use your own tools/templates. When creating your

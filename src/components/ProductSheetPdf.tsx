@@ -154,15 +154,25 @@ const allergenKeywordMap: Record<string, string[]> = {
   walnut: ["walnut"],
 };
 
-const isAllergenIngredient = (ingredient: string, allergenLabels: string[]) => {
+const getAllergenKeywordInIngredient = (ingredient: string, allergenLabels: string[]): string | null => {
   const normalizedIngredient = ingredient.trim().toLowerCase();
 
-  return allergenLabels.some((label) => {
+  for (const label of allergenLabels) {
     const normalizedLabel = label.trim().toLowerCase();
     const keywords = allergenKeywordMap[normalizedLabel] ?? [normalizedLabel];
 
-    return keywords.some((keyword) => normalizedIngredient.includes(keyword));
-  });
+    for (const keyword of keywords) {
+      const pluralForm = keyword.endsWith('s') ? keyword : keyword + 's';
+      
+      if (normalizedIngredient.includes(keyword)) {
+        return keyword;
+      }
+      if (normalizedIngredient.includes(pluralForm)) {
+        return pluralForm;
+      }
+    }
+  }
+  return null;
 };
 
 const renderIngredientList = (ingredientList: string, allergenLabels: string[]) => {
@@ -175,12 +185,28 @@ const renderIngredientList = (ingredientList: string, allergenLabels: string[]) 
     .map((item) => item.trim())
     .filter(Boolean)
     .map((ingredient, index) => {
-      const isAllergen = isAllergenIngredient(ingredient, allergenLabels);
+      const allergenKeyword = getAllergenKeywordInIngredient(ingredient, allergenLabels);
+
+      if (allergenKeyword) {
+        const parts = ingredient.split(new RegExp(`(${allergenKeyword})`, 'i'));
+        return (
+          <Text key={`${ingredient}-${index}`}>
+            {index > 0 ? ", " : ""}
+            {parts.map((part, i) =>
+              part.toLowerCase() === allergenKeyword ? (
+                <Text key={i} style={styles.bold}>{part}</Text>
+              ) : (
+                part
+              )
+            )}
+          </Text>
+        );
+      }
 
       return (
         <Text key={`${ingredient}-${index}`}>
           {index > 0 ? ", " : ""}
-          {isAllergen ? <Text style={styles.bold}>{ingredient}</Text> : ingredient}
+          {ingredient}
         </Text>
       );
     });
