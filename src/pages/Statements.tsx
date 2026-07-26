@@ -662,8 +662,9 @@ export const Statements = ({ onBack, onNext, onCancel }: StatementsProps) => {
               These foods or ingredients must be written on the label no matter
               how small the amount <br /> and may also need a warning statement.
             </figcaption>
+            {/* @todo replace image asset with uploaded image on franchise */}
             <img
-              src="https://www.qld.gov.au/?a=145923"
+              src="src\assets\contains-statement.png"
               alt="Example food label with advisory statements, warning statements and declarations."
               className="img-fluid"
             />
