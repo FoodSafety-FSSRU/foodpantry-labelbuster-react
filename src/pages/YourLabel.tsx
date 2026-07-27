@@ -640,7 +640,7 @@ export const YourLabel = ({ onBack, onCancel }: YourLabelProps) => {
                     <td>Statements and declarations</td>
                     <td>
                       <p>
-                        <b>{containsList.length ? "Contains:" : ""}</b>
+                        <b>{containsList.length ? "Contains" : ""}</b>
                         <b>{containsList.length
                           ? ` ${containsList.join(", ")}.`
                           : ""}</b>
@@ -652,9 +652,22 @@ export const YourLabel = ({ onBack, onCancel }: YourLabelProps) => {
                           : ""}
                       </p>
                       <p>
-                        {containsList.length
-                          ? "Note: Warning statements must be a minimum size of type of 3 mm. In the case of small packages, a minimum size of type of 1.5 mm is required."
-                          : "No data provided"}
+                        {containsList.length ? (
+                          <>
+                            <p>
+                              Note: Allergen declarations must use the required names defined in
+                              Schedule 9 of the Food Standards Code to identify allergens in the food.
+                              The allergen declaration must be printed near the ingredients list in bold
+                              font type, using the same typeface and size as the ingredients.
+                            </p>
+                            <p>
+                              Note: Warning statements must be a minimum size of type of 3 mm. In the
+                              case of small packages, a minimum size of type of 1.5 mm is required.
+                            </p>
+                          </>
+                        ) : (
+                          <p>No data provided</p>
+                        )}
                       </p>
                     </td>
                   </tr>
@@ -778,7 +791,7 @@ export const YourLabel = ({ onBack, onCancel }: YourLabelProps) => {
                     </p>
                     <div>
                       <p>
-                        <b>{containsList.length ? "Contains:" : ""}</b>
+                        <b>{containsList.length ? "Contains" : ""}</b>
                         <b>{containsList.length
                           ? ` ${containsList.join(", ")}.`
                           : ""}</b>

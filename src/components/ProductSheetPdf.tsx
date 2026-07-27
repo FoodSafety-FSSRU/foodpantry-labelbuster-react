@@ -228,13 +228,13 @@ export const ProductSheetDocument = ({ data }: { data: ProductSheetData }) => {
 
   const statements = [
     data.containsList.length
-      ? `Contains: ${data.containsList.join(", ")}.`
+      ? `Contains ${data.containsList.join(", ")}.`
       : null,
     ...data.statementMessages,
   ].filter(Boolean) as string[];
 
   const renderedStatements = statements.map((statement, index) => {
-    const isContainsStatement = statement.startsWith("Contains:");
+    const isContainsStatement = statement.startsWith("Contains");
 
     return (
       <Line key={`${statement}-${index}`}>
@@ -319,10 +319,21 @@ export const ProductSheetDocument = ({ data }: { data: ProductSheetData }) => {
               <Text>
                 Ingredients: {renderIngredientList(data.ingredientList, data.containsList)}
               </Text>
+              
             ) : (
               NA
             )}
           </Line>
+          <Text>
+            Note:  The ingredient list must use the required names defined in{" "} 
+            <Link
+              src="https://www.legislation.gov.au/F2015L00479/latest/text"
+            >
+              Schedule 9
+            </Link>{" "} 
+            of the Food Standards Code to identify allergens in the food. The required name must 
+            be the same font size as all other ingredient names and printed in bold font type.    
+          </Text>
         </Row>
 
         {/* Nutritional information panel (static, full width) */}
