@@ -33,7 +33,7 @@ export const Home = ({ onStart }: HomeProps) => {
         <p>
           The
           <a
-            href="https://www.foodstandards.gov.au/code/Pages/default.aspx"
+            href="https://www.foodstandards.gov.au/food-standards-code/legislation"
             rel="noopener"
             target="_blank"
           >
@@ -180,7 +180,7 @@ export const Home = ({ onStart }: HomeProps) => {
               </a>
               labelling.{" "}
               <a
-                href="http://www.healthstarrating.gov.au/internet/healthstarrating/publishing.nsf/content/home"
+                href="https://www.healthstarrating.gov.au/"
                 target="_blank"
                 rel="noopener"
               >
