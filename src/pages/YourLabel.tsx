@@ -803,7 +803,7 @@ export const YourLabel = ({ onBack, onCancel }: YourLabelProps) => {
                           : ""}
                       </p>
                     </div>
-                    <br />
+                    
                   </div>
                   <div className="address-block">
                     <b>{businessDetails.businessName || "no name provided"}</b>
