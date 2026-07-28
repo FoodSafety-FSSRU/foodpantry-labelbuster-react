@@ -692,8 +692,10 @@ export const Ingredients = ({ onBack, onNext, onCancel }: IngredientsProps) => {
                   </abbr>
                 </p>
                 <small className="small mb-3">
-                  <p>Ingredients will need to be listed in decending order by weight or perentage.</p>
-                  To reorder your ingredients:
+                  <p>
+                    The ingredients list must be in descending order of ingoing weight. 
+                  </p>
+                  <p>To reorder your ingredients:</p>
                   <ul>
                     <li>Drag and drop your ingredient using the blue boxes on the left</li>
                   </ul>

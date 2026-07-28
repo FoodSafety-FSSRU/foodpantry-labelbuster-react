@@ -324,8 +324,8 @@ export const ProductSheetDocument = ({ data }: { data: ProductSheetData }) => {
               NA
             )}
           </Line>
-          <Text>
-            Note:  The ingredient list must use the required names defined in{" "} 
+          <Text style={styles.para}>
+            Note: The ingredient list must use the required names defined in{" "} 
             <Link
               src="https://www.legislation.gov.au/F2015L00479/latest/text"
             >
@@ -362,6 +362,15 @@ export const ProductSheetDocument = ({ data }: { data: ProductSheetData }) => {
 
         <Row heading="Statements and declarations">
           {statements.length ? renderedStatements : <Line>{NA}</Line>}
+          <Text style={styles.para}>
+            Note: For more information about Statements, declarations and allergen labelling, please refer to{" "} 
+            <Link
+              src="https://www.qld.gov.au/health/staying-healthy/food-pantry/food-labelling/about-food-labels"
+            >
+              About food labels
+            </Link>   
+            .
+          </Text>
         </Row>
 
         <Row heading="Date mark" secondary>

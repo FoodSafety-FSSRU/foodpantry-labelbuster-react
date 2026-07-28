@@ -497,28 +497,21 @@ export const YourLabel = ({ onBack, onCancel }: YourLabelProps) => {
             }
           />
           <p>
-            <strong className="text-danger">**Don't forget</strong> to refer to
-            the {" "}
-            <a href="https://www.health.qld.gov.au/__data/assets/pdf_file/0030/1126947/allergen-labelling.pdf">
-              Allergen labelling
-            </a>
-            {" "}fact sheet to make the changes required to ensure that your label is
-            fully compliant with the Food Standards Code requirements.
-          </p>
-          <p>
-            If you have any further questions in relation to
-            your label, please contact the Food Safety Standards and Regulation Unit via{" "}
+            Label Buster is a brief guide to help you understand your labelling
+            requirements. If you have any further questions in relation to your label, 
+            please contact the Food Safety Standards and Regulation Unit via{" "}
             <a href="mailto:foodsafety@health.qld.gov.au">
               foodsafety@health.qld.gov.au
             </a>
             {" "}or phone (07) 3328 9310.
           </p>
           <p>
-            Label Buster is a brief guide to help you understand your labelling
-            requirements. You may choose to get advice from a labelling
-            consultant to make sure that your label complies with the Food
-            Standards Code.
+            Please note: Queensland Health does not approve labels. 
+            For assessment of your particular product or labels against the 
+            requirements of the Food Standards Code, you may need to obtain the 
+            assistance of an independent legal adviser or food labelling consultant.
           </p>
+          
           <p>On this page, you will find:</p>
           <ul>
             <li>
