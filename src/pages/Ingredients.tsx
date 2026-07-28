@@ -79,11 +79,12 @@ const getAllergenKeywordInIngredient = (ingredient: string): string | null => {
   for (const keyword of allergenKeywords) {
     const pluralForm = keyword.endsWith('s') ? keyword : keyword + 's';
     
-    if (normalizedIngredient.includes(keyword)) {
-      return keyword;
-    }
+    // Check plural form first (longer match priority)
     if (normalizedIngredient.includes(pluralForm)) {
       return pluralForm;
+    }
+    if (normalizedIngredient.includes(keyword)) {
+      return keyword;
     }
   }
   return null;
