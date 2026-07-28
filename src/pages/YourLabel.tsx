@@ -506,9 +506,8 @@ export const YourLabel = ({ onBack, onCancel }: YourLabelProps) => {
             fully compliant with the Food Standards Code requirements.
           </p>
           <p>
-            If you have trouble or have any further questions in relation to
-            incorporating the allergen requirements into your label, please
-            contact the Food Safety Standards and Regulation Unit via{" "}
+            If you have any further questions in relation to
+            your label, please contact the Food Safety Standards and Regulation Unit via{" "}
             <a href="mailto:foodsafety@health.qld.gov.au">
               foodsafety@health.qld.gov.au
             </a>
@@ -549,12 +548,7 @@ export const YourLabel = ({ onBack, onCancel }: YourLabelProps) => {
             <h2>Product sheet</h2>
             <p>
               You can take this information to a printer or graphic designer to
-              create a label or use your own tools/templates. When creating your
-              food label, you must ensure you meet the{" "}
-              <a href="#legibility-requirements">
-                <span className="title">legibility requirements</span>
-              </a>
-              {" "}, such as minimum type size.
+              create a label or use your own tools/templates.
             </p>
             <div className="table-responsive">
               <table className="table">
@@ -655,15 +649,23 @@ export const YourLabel = ({ onBack, onCancel }: YourLabelProps) => {
                         {containsList.length ? (
                           <>
                             <p>
-                              Note: Allergen declarations must use the required names defined in
-                              Schedule 9 of the Food Standards Code to identify allergens in the food.
-                              The allergen declaration must be printed near the ingredients list in bold
-                              font type, using the same typeface and size as the ingredients.
+                              Notes:
                             </p>
-                            <p>
-                              Note: Warning statements must be a minimum size of type of 3 mm. In the
-                              case of small packages, a minimum size of type of 1.5 mm is required.
-                            </p>
+                            <ul>
+                              <li>
+                                Allergen statements must be located in the same field of view and next to the ingredients list.
+                              </li>
+                              <li>
+                                Allergen declarations must use the required names defined in
+                                Schedule 9 of the Food Standards Code to identify allergens in the food.
+                                The allergen declaration must be printed near the ingredients list in bold
+                                font type, using the same typeface and size as the ingredients.
+                              </li>
+                              <li>
+                                Warning statements must be a minimum size of type of 3 mm. In the
+                                case of small packages, a minimum size of type of 1.5 mm is required.
+                              </li>
+                            </ul>
                           </>
                         ) : (
                           <p>No data provided</p>
@@ -744,13 +746,13 @@ export const YourLabel = ({ onBack, onCancel }: YourLabelProps) => {
           </div>
 
           <div className="example-food-label">
-            <h2>Example of food label</h2>
+            <h2>Example food label</h2>
             <p>
               Below is an example of what your label could look like, using the
               information you provided in Label Buster. Label components can be
-              placed anywhere on the label you create. They do not need to be in
-              the specific layout shown here. They may be displayed in any order
-              or arrangement
+              placed anywhere on the label you create, except if an allergen statement
+              is required. The allergen statement must be located in the same field of view and directly 
+              next to or below the statement of ingredients. 
             </p>
             <div className="example-label-wrapper">
               <div className="example-label">
@@ -869,8 +871,8 @@ export const YourLabel = ({ onBack, onCancel }: YourLabelProps) => {
           <div className="exmptions">
             <h2>Exemptions</h2>
             <p>
-              All of the food label information needs to be included on your
-              food label, except for:
+              All food label information needs to be included on your
+              food label, with exceptions that relate to:
             </p>
             <ul>
               <li>
@@ -922,7 +924,11 @@ export const YourLabel = ({ onBack, onCancel }: YourLabelProps) => {
           <div className="download-pdf">
             <h2>Download your product sheet here</h2>
             <p>
-              You can download a pdf of your label information summary below. 
+              You can download a pdf copy of your label information using the button below. 
+            </p>
+            <p>
+              If you need to make changes to your food label, go back to the relevant step 
+              and update your answers, then regenerate your label.
             </p>
 
             {/* Download PDF Button */}
@@ -946,19 +952,6 @@ export const YourLabel = ({ onBack, onCancel }: YourLabelProps) => {
                 )}
               </button>
             </div>
-          </div>
-
-          
-
-          <div className="need-to-change-your-food-label">
-            <h2>Need to update your food label</h2>
-            <p>
-              If you would like to update details in your food 
-              label, such as different flavours or ingredients, 
-              you can go back and update your answers by clicking 
-              on the relevant step. You can then regenerate your 
-              label with these new details.
-            </p>
           </div>
 
         </div>
