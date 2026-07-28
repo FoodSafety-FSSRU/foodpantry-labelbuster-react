@@ -154,62 +154,70 @@ const allergenKeywordMap: Record<string, string[]> = {
   walnut: ["walnut"],
 };
 
-const getAllergenKeywordInIngredient = (ingredient: string, allergenLabels: string[]): string | null => {
+const getAllergenKeywordInIngredient = (ingredient: string): string | null => {
   const normalizedIngredient = ingredient.trim().toLowerCase();
 
-  for (const label of allergenLabels) {
-    const normalizedLabel = label.trim().toLowerCase();
-    const keywords = allergenKeywordMap[normalizedLabel] ?? [normalizedLabel];
+  // Get all keywords from allergenKeywordMap
+  const allKeywords: string[] = [];
+  Object.values(allergenKeywordMap).forEach(keywords => {
+    allKeywords.push(...keywords);
+  });
 
-    for (const keyword of keywords) {
-      const pluralForm = keyword.endsWith('s') ? keyword : keyword + 's';
-      
-      if (normalizedIngredient.includes(keyword)) {
-        return keyword;
-      }
-      if (normalizedIngredient.includes(pluralForm)) {
-        return pluralForm;
-      }
+  // Sort by length descending to match longer terms first (e.g., "brazil nut" before "nut")
+  allKeywords.sort((a, b) => b.length - a.length);
+
+  for (const keyword of allKeywords) {
+    const pluralForm = keyword.endsWith('s') ? keyword : keyword + 's';
+    
+    // Check plural form first (longer match)
+    if (normalizedIngredient.includes(pluralForm)) {
+      return pluralForm;
+    }
+    // Then check singular form
+    if (normalizedIngredient.includes(keyword)) {
+      return keyword;
     }
   }
   return null;
 };
 
-const renderIngredientList = (ingredientList: string, allergenLabels: string[]) => {
+const renderIngredientList = (ingredientList: string) => {
   if (!ingredientList) {
     return null;
   }
 
-  return ingredientList
+  const items: (string | ReactNode)[] = [];
+
+  ingredientList
     .split(",")
     .map((item) => item.trim())
     .filter(Boolean)
-    .map((ingredient, index) => {
-      const allergenKeyword = getAllergenKeywordInIngredient(ingredient, allergenLabels);
+    .forEach((ingredient, index) => {
+      if (index > 0) {
+        items.push(", ");
+      }
+
+      const allergenKeyword = getAllergenKeywordInIngredient(ingredient);
 
       if (allergenKeyword) {
         const parts = ingredient.split(new RegExp(`(${allergenKeyword})`, 'i'));
-        return (
-          <Text key={`${ingredient}-${index}`}>
-            {index > 0 ? ", " : ""}
-            {parts.map((part, i) =>
-              part.toLowerCase() === allergenKeyword ? (
-                <Text key={i} style={styles.bold}>{part}</Text>
-              ) : (
-                part
-              )
-            )}
-          </Text>
-        );
+        parts.forEach((part, partIndex) => {
+          if (part.toLowerCase() === allergenKeyword) {
+            items.push(
+              <Text key={`${ingredient}-${index}-${partIndex}`} style={styles.bold}>
+                {part}
+              </Text>
+            );
+          } else {
+            items.push(part);
+          }
+        });
+      } else {
+        items.push(ingredient);
       }
-
-      return (
-        <Text key={`${ingredient}-${index}`}>
-          {index > 0 ? ", " : ""}
-          {ingredient}
-        </Text>
-      );
     });
+
+  return items;
 };
 
 /**
@@ -317,7 +325,7 @@ export const ProductSheetDocument = ({ data }: { data: ProductSheetData }) => {
           <Line>
             {data.ingredientList ? (
               <Text>
-                Ingredients: {renderIngredientList(data.ingredientList, data.containsList)}
+                Ingredients: {renderIngredientList(data.ingredientList)}
               </Text>
               
             ) : (
