@@ -209,15 +209,7 @@ const sections: AccordionItemConfig[] = [
               Australian Competition and Consumer Commission
             </a>{" "}
           </li>
-          <li>
-            <a
-              href="https://catalogue.nla.gov.au/catalog/3889020"
-              target="_blank"
-              rel="noopener"
-            >
-              Food and beverage industry: food descriptors guideline to the Trade Practices Act/ Australian Competition & Consumer Commission
-            </a>{" "}
-          </li>
+          
         </ul>
       </>
     ),
