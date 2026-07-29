@@ -639,7 +639,7 @@ export const YourLabel = ({ onBack, onCancel }: YourLabelProps) => {
                           ? statementMessages.join(" ")
                           : ""}
                       </p>
-                      <p>
+                      <div>
                         {containsList.length ? (
                           <>
                             <p>
@@ -664,7 +664,7 @@ export const YourLabel = ({ onBack, onCancel }: YourLabelProps) => {
                         ) : (
                           <p>No data provided</p>
                         )}
-                      </p>
+                      </div>
                     </td>
                   </tr>
                   <tr>
