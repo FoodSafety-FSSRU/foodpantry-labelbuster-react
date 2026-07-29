@@ -691,7 +691,7 @@ const extraRequirements: AccordionItemConfig[] = [
         <p>
           <b>If the food is non-alcoholic or brewed soft drink:</b>
           <br />
-          Non-alcoholic drinks and brewed soft drinks (e.g.: fermented ginger
+          Non-alcoholic drinks and brewed soft drinks (e.g. fermented ginger
           beer or kombucha) must not suggest the product is an alcoholic
           beverage. There is a possible risk that brewed soft drinks may contain
           alcohol which need extra labelling requirements. We recommend you seek

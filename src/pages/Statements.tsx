@@ -429,7 +429,7 @@ const FOOD_AND_INGREDIENTS_CONFIGS: FoodAndIngredientsConfig[] = [
         hint: "warning",
         notes: [
           "the label lists the specific source name of the oil, and",
-          "the oil has undergone a process that has altered its fatty acid composition (e.g.: hydrogenation)",
+          "the oil has undergone a process that has altered its fatty acid composition (e.g. hydrogenation)",
         ],
       },
     ],

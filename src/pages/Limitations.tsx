@@ -130,7 +130,7 @@ export const Limitations = ({ onBack, onNext, onCancel }: LimitationsProps) => {
           <small className="hint">
             For example: Beer, wine, spirits, energy drink or breakfast drink.
             Select no if your food contains alcohol as an ingredient but is not
-            a drink (e.g.: brandy custard, rum balls).
+            a drink (e.g. brandy custard, rum balls).
           </small>
         </p>
       </div>

@@ -191,7 +191,7 @@ const generalRequirements: AccordionItemConfig[] = [
               >
                 Standard 1.2.5
               </a>{" "}
-              Information requirements – date marking of food for sale
+              Information requirements - date marking of food for sale
             </li>
           </ul>
         </section>
